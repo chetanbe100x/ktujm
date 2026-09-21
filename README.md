@@ -20,7 +20,7 @@ This repository contains the web portal redesign prototype for **Kushabhau Thakr
    - Tabbed Programmes Area (`business_expert_area`) with PG Diploma, Graduation, Post Graduation, and Research (Ph.D.).
    - Pool Area 2: Central Media Library.
    - Distinguished Faculty profile cards.
-   - Media Conclave & Webinar video embed.
+   - Media Conclave & Webinar video embed
    - 3-Column Responsive Footer (Important Links, Media Links, Queries & Contact).
    - Interactive Admission Inquiry Modal with course auto-selection.
 
