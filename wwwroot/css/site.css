@@ -1,12 +1,12 @@
 /* ==========================================================================
-   KTUJM Web Portal - Stylesheet (HJU Pattern Replica + KTUJM Branding)
-   Color Palette: Deep Plum Purple (#4a154b, #2b0b2c), Regal Gold (#d97706, #f59e0b)
+   KTUJM Web Portal - Stylesheet (HJU Pattern Replica + Prestigious Blue Palette)
+   Color Palette: Academic Navy Blue (#0d3b66, #061a2e), Regal Gold (#d97706, #f59e0b)
    ========================================================================== */
 
 :root {
-  --brand-primary: #4a154b;
-  --brand-dark: #1e1022;
-  --brand-light: #f8f4f9;
+  --brand-primary: #0d3b66;
+  --brand-dark: #061a2e;
+  --brand-light: #f0f7ff;
   --brand-gold: #d97706;
   --brand-gold-light: #fbbf24;
   --font-serif: 'Alegreya Sans', sans-serif;
@@ -16,14 +16,14 @@
 body {
   font-family: var(--font-sans);
   color: #333333;
-  background-color: #fcfcfd;
+  background-color: #f8fafc;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 700;
-  color: #1a1a1a;
+  color: #0f172a;
 }
 
 .bg-brand-primary {
@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-gradient-dark-overlay {
-  background: linear-gradient(180deg, rgba(20, 10, 24, 0.4) 0%, rgba(20, 10, 24, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(6, 26, 46, 0.45) 0%, rgba(6, 26, 46, 0.92) 100%);
 }
 
 .max-w-700 {
@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 1050;
   font-size: 13px;
-  background-color: #3a103b;
+  background-color: #0b3156;
 }
 
 .top-header-bar .dropdown {
@@ -97,13 +97,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-header-bar .dropdown-item:hover {
-  background-color: #fdf2f8 !important;
+  background-color: #f0f7ff !important;
   color: var(--brand-primary) !important;
 }
 
 .top-header-bar .dropdown-item.active,
 .top-header-bar .dropdown-item:active {
-  background-color: var(--brand-primary) !important; /* Brand purple */
+  background-color: var(--brand-primary) !important; /* Stately Navy Blue */
   color: #fbbf24 !important; /* Regal gold */
   font-weight: 700;
 }
@@ -123,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #site-navbar {
-  background-color: #1e1022;
+  background-color: #061a2e;
   border-bottom: 3px solid var(--brand-gold);
 }
 
@@ -153,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #site-navbar .dropdown-item:hover {
-  background-color: #fdf2f8;
+  background-color: #f0f7ff;
   color: var(--brand-primary);
   font-weight: 600;
 }
@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  background-color: #180d1b;
+  background-color: #061a2e;
 }
 
 .hero-section .carousel-item {
@@ -247,7 +247,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 15px;
   right: 20px;
   font-size: 32px;
-  color: rgba(74, 21, 75, 0.15);
+  color: rgba(13, 59, 102, 0.15);
 }
 
 /* --------------------------------------------------------------------------
@@ -269,7 +269,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(30, 16, 34, 0.92) 0%, rgba(74, 21, 75, 0.88) 100%);
+  background: linear-gradient(135deg, rgba(6, 26, 46, 0.94) 0%, rgba(13, 59, 102, 0.9) 100%);
   z-index: 1;
 }
 
@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   font-weight: 800;
   font-size: 32px;
-  color: #1e1022;
+  color: #061a2e;
   margin-bottom: 20px;
 }
 
@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, h6 {
 .business_tabs_area .nav-link.active {
   color: var(--brand-primary);
   border-color: var(--brand-gold);
-  background-color: #faf5ff;
+  background-color: #f0f7ff;
   border-radius: 8px 8px 0 0;
 }
 
@@ -400,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  background: rgba(30, 16, 34, 0.85);
+  background: rgba(6, 26, 46, 0.88);
   backdrop-filter: blur(4px);
   color: var(--brand-gold-light);
   padding: 4px 10px;
@@ -470,13 +470,13 @@ h1, h2, h3, h4, h5, h6 {
 .faculty-1-content h4 {
   font-size: 17px;
   font-weight: 700;
-  color: #1e1022;
+  color: #061a2e;
   margin-bottom: 4px;
 }
 
 .faculty-1-content p.designation {
   font-size: 13px;
-  color: #7c3aed;
+  color: #0284c7;
   font-weight: 600;
   margin-bottom: 0;
 }
@@ -506,8 +506,8 @@ h1, h2, h3, h4, h5, h6 {
    Footer Area
    -------------------------------------------------------------------------- */
 .footer-area {
-  background-color: #160c19;
-  color: #9ca3af;
+  background-color: #051525;
+  color: #94a3b8;
   font-size: 14px;
 }
 
@@ -519,7 +519,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-area a {
-  color: #d1d5db;
+  color: #cbd5e1;
   transition: color 0.2s ease, transform 0.2s ease;
   display: inline-block;
 }
@@ -540,8 +540,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: #370e38;
-  border-color: #370e38;
+  background-color: #144e87;
+  border-color: #144e87;
 }
 
 .btn-warning {
