@@ -52,7 +52,7 @@ namespace KtujmWeb.Controllers
                         Name = "Shri Ramen Deka",
                         Designation = "Hon'ble Governor & Chancellor, KTUJM",
                         Quote = "Media is the bedrock of our democratic ethos. Kushabhau Thakre University serves as an intellectual lighthouse nurturing ethical, independent, and socially responsible media professionals.",
-                        ImageUrl = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
+                        ImageUrl = "images/people/honble_governor.jpg",
                         ProfileUrl = "#"
                     },
                     new LeaderProfile
@@ -61,7 +61,7 @@ namespace KtujmWeb.Controllers
                         Name = "Prof. Manoj Dayal",
                         Designation = "Vice-Chancellor, KTUJM Raipur",
                         Quote = "Our pedagogical commitment bridges traditional journalistic integrity with modern digital convergence—fostering excellence across television broadcasting, AI in newsrooms, and public discourse.",
-                        ImageUrl = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+                        ImageUrl = "images/people/pro-manoj-dayal.jpg",
                         ProfileUrl = "#"
                     }
                 },
