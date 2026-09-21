@@ -24,7 +24,7 @@
 <body data-bs-spy="scroll" data-bs-target="#site-navbar" data-bs-offset="200">
 
     <!-- Top Header Bar matching HJU structure -->
-    <div class="top-header-bar bg-brand-primary text-white py-2 border-bottom border-secondary border-opacity-25">
+    <div class="top-header-bar bg-brand-primary text-white py-2 border-bottom border-secondary border-opacity-25" style="position: relative; z-index: 1050;">
         <div class="container-fluid px-lg-5">
             <div class="row align-items-center">
                 <!-- University Logo & Brand on Left -->
@@ -84,11 +84,11 @@
                         </a>
                         <span>|</span>
                         <!-- Language Switcher Dropdown matching HJU -->
-                        <div class="dropdown d-inline-block">
+                        <div class="dropdown d-inline-block position-relative" style="z-index: 1060;">
                             <button class="btn btn-outline-light btn-sm dropdown-toggle py-0 px-2 fw-semibold" type="button" data-bs-toggle="dropdown">
                                 <i class="bi bi-globe me-1 text-warning"></i> @(Model?.Language == "hi" ? "हिंदी" : "English")
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <ul class="dropdown-menu dropdown-menu-end shadow" style="z-index: 1070;">
                                 <li><a class="dropdown-item @(Model?.Language == "hi" ? "active" : "")" href="/hindi">हिंदी</a></li>
                                 <li><a class="dropdown-item @(Model?.Language == "en" ? "active" : "")" href="/en">English</a></li>
                             </ul>

@@ -25,7 +25,7 @@
 <body data-bs-spy="scroll" data-bs-target="#site-navbar" data-bs-offset="150">
 
   <!-- 1. Top Header Bar matching HJU structure -->
-  <div class="top-header-bar text-white py-2">
+  <div class="top-header-bar text-white py-2" style="position: relative; z-index: 1050;">
     <div class="container-fluid px-lg-5">
       <div class="row align-items-center">
         <!-- University Logo & Identity on Left -->
@@ -86,11 +86,11 @@
             </a>
             <span>|</span>
             <!-- Language Switcher Dropdown matching HJU -->
-            <div class="dropdown d-inline-block">
+            <div class="dropdown d-inline-block position-relative" style="z-index: 1060;">
               <button class="btn btn-outline-light btn-sm dropdown-toggle py-0 px-2 fw-semibold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-globe me-1 text-warning"></i> English
               </button>
-              <ul class="dropdown-menu dropdown-menu-end shadow">
+              <ul class="dropdown-menu dropdown-menu-end shadow" style="z-index: 1070;">
                 <li><a class="dropdown-item" data-valuetype="language" data-value="hindi" href="index.html">हिंदी</a></li>
                 <li><a class="dropdown-item active" data-valuetype="language" data-value="english" href="index_en.html">English</a></li>
               </ul>
