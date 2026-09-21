@@ -1,0 +1,345 @@
+@model KtujmWeb.Models.HomeViewModel
+@{
+    ViewData["Title"] = "मुख्य पटल - कुशाभाऊ ठाकरे पत्रकारिता एवं जनसंचार विश्वविद्यालय";
+}
+
+<!-- Marquee for Important Admissions & Examination News -->
+<div class="bg-warning text-dark py-2 px-3 border-bottom border-warning shadow-sm">
+    <div class="container-fluid px-lg-5 d-flex align-items-center">
+        <span class="badge bg-dark text-warning fw-bold uppercase me-3 shrink-0">नवीनतम सूचनाएँ</span>
+        <marquee direction="left" onmouseover="this.stop();" onmouseout="this.start();" class="fw-semibold small m-0">
+            <a href="#admissions" class="text-dark text-decoration-none me-4">
+                <strong>1. शैक्षणिक सत्र 2026-27 के स्नातक, स्नातकोत्तर एवं डिप्लोमा पाठ्यक्रमों में प्रवेश हेतु आवेदन आमंत्रित।</strong> <span class="badge bg-danger text-white">नया</span>
+            </a>
+            <a href="#announcements" class="text-dark text-decoration-none me-4">
+                <strong>2. सेमेस्टर परीक्षा (नियमित एवं एटीकेटी) जून-जुलाई 2026 की समय-सारणी जारी।</strong> <span class="badge bg-danger text-white">नया</span>
+            </a>
+            <a href="#events" class="text-dark text-decoration-none">
+                <strong>3. 'एआई और भारतीय पत्रकारिता का भविष्य' विषयक दो दिवसीय राष्ट्रीय मीडिया कॉन्क्लेव अक्टूबर 2026 में।</strong>
+            </a>
+        </marquee>
+    </div>
+</div>
+
+<!-- 1. Hero Banner Slideshow -->
+<div class="hero-section position-relative">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="height: 520px;">
+                <img src="https://images.unsplash.com/photo-1578022761797-b8636ac1773c?auto=format&fit=crop&q=80&w=1920" class="d-block w-100 h-100 object-fit-cover" alt="Broadcast Studio">
+                <div class="carousel-caption text-start d-flex flex-column justify-content-center h-100 bg-gradient-dark-overlay px-4 px-md-5">
+                    <span class="badge bg-warning text-dark text-uppercase px-3 py-1.5 fw-bold mb-3 d-inline-block w-auto" style="width: fit-content;">अत्याधुनिक ब्रॉडकास्ट टेलीविजन फ्लोर</span>
+                    <h1 class="display-5 fw-black font-serif text-white text-shadow">मूल्यपरक मीडिया पेशेवरों का निर्माण.<br />सशक्त लोकतांत्रिक भविष्य का सृजन.</h1>
+                    <p class="lead text-white-50 max-w-700">बहु-कैमरा टेलीविजन निर्माण, क्रोमा स्टूडियो एवं खोजी पत्रकारिता के व्यावहारिक प्रशिक्षण से सुसज्जित।</p>
+                    <div class="mt-3">
+                        <a href="#all-programs" class="btn btn-warning btn-lg fw-bold me-2 px-4 shadow">पाठ्यक्रम देखें</a>
+                        <a href="#admissions" class="btn btn-outline-light btn-lg fw-semibold px-4">प्रवेश 2026-27</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="height: 520px;">
+                <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1920" class="d-block w-100 h-100 object-fit-cover" alt="Kathadih Campus">
+                <div class="carousel-caption text-start d-flex flex-column justify-content-center h-100 bg-gradient-dark-overlay px-4 px-md-5">
+                    <span class="badge bg-warning text-dark text-uppercase px-3 py-1.5 fw-bold mb-3 d-inline-block w-auto" style="width: fit-content;">50 एकड़ हरा-भरा सुरम्य परिसर, रायपुर</span>
+                    <h1 class="display-5 fw-black font-serif text-white text-shadow">मध्य भारत का प्रथम समर्पित<br />मीडिया गुरुकुल</h1>
+                    <p class="lead text-white-50 max-w-700">रेडियो प्रतिध्वनि 90.8 FM, मल्टीमीडिया संपादन कक्ष, राष्ट्रीय कॉन्क्लेव और 25,000 से अधिक ग्रन्थों का समृद्ध पुस्तकालय।</p>
+                    <div class="mt-3">
+                        <a href="#about" class="btn btn-warning btn-lg fw-bold me-2 px-4 shadow">विश्वविद्यालय परिचय</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg fw-semibold px-4">संपर्क करें</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="height: 520px;">
+                <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&q=80&w=1920" class="d-block w-100 h-100 object-fit-cover" alt="Newsroom">
+                <div class="carousel-caption text-start d-flex flex-column justify-content-center h-100 bg-gradient-dark-overlay px-4 px-md-5">
+                    <span class="badge bg-warning text-dark text-uppercase px-3 py-1.5 fw-bold mb-3 d-inline-block w-auto" style="width: fit-content;">राष्ट्रीय शिक्षा नीति (NEP 2020)</span>
+                    <h1 class="display-5 fw-black font-serif text-white text-shadow">पारम्परिक पत्रकारिता मूल्यों और<br />डिजिटल तकनीकों का संगम</h1>
+                    <p class="lead text-white-50 max-w-700">उद्योग की मांग के अनुरूप तैयार स्नातक, स्नातकोत्तर एवं शोध कार्यक्रम।</p>
+                    <div class="mt-3">
+                        <a href="#all-programs" class="btn btn-warning btn-lg fw-bold me-2 px-4 shadow">पाठ्यक्रम सूची</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    
+    <!-- Anchor Down Link -->
+    <a id="anchor-down" class="anchor-down d-none d-md-block text-center" href="#leadership">
+        <i class="bi bi-chevron-double-down fs-4 text-warning"></i>
+    </a>
+</div>
+
+<!-- 2. Leadership Dignitaries Section -->
+<div class="site-section py-5 bg-light border-bottom" id="leadership">
+    <div class="container px-lg-5">
+        <div class="row g-4 justify-content-center">
+            @foreach (var leader in Model.Leadership)
+            {
+                <div class="col-lg-6 col-md-12">
+                    <div class="card border-0 shadow-sm rounded-4 h-100 p-4 bg-white hover-shadow-lg transition">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-sm-5 text-center">
+                                <div class="leadership-img-wrapper position-relative mx-auto">
+                                    <img src="@leader.ImageUrl" alt="@leader.Name" class="img-fluid rounded-4 shadow-sm object-fit-cover" style="height: 190px; width: 100%;">
+                                    <span class="badge bg-brand-primary text-warning position-absolute bottom-0 start-50 translate-middle-x mb-2 px-3 py-1 shadow-sm">
+                                        विश्वविद्यालय नेतृत्व
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <h6 class="text-warning fw-bold text-uppercase small mb-1" style="font-size: 11px;">@leader.Title</h6>
+                                <h4 class="fw-black font-serif text-dark mb-1">@leader.Name</h4>
+                                <p class="text-muted small fw-semibold mb-2">@leader.Designation</p>
+                                <p class="fst-italic text-secondary small lh-base border-start border-3 border-warning ps-3 mb-3">
+                                    "@leader.Quote"
+                                </p>
+                                <a href="@leader.ProfileUrl" class="btn btn-outline-dark btn-sm fw-bold px-3">
+                                    विस्तार से पढ़ें <i class="bi bi-arrow-right ms-1 text-warning"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- 3. Pool Area: About University -->
+<section class="pool-area section-padding-100 bg-img position-relative text-white py-5" id="about" style="background: linear-gradient(rgba(30, 16, 34, 0.88), rgba(74, 21, 75, 0.9)), url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;">
+    <div class="container px-lg-5 position-relative" style="z-index: 2;">
+        <div class="row justify-content-end">
+            <div class="col-12 col-lg-8">
+                <div class="pool-content text-start">
+                    <div class="section-heading text-white">
+                        <h2 class="display-6 fw-bold mb-3 font-serif">विश्‍वविद्यालय: एक परिचय</h2>
+                        <p class="lead fs-6 text-light lh-lg">
+                            मीडिया एवं जनसंचार के निरंतर विस्तृत होते क्षेत्र में योग्य पेशेवरों की आवश्यकता को ध्यान में रखते हुए छत्तीसगढ़ शासन द्वारा <strong>कुशाभाऊ ठाकरे पत्रकारिता एवं जनसंचार विश्वविद्यालय (के.टी.यू.जे.एम.), रायपुर</strong> की स्थापना राज्य विधानमंडल के अधिनियम क्रमांक 24/2004 के तहत की गई। विश्वविद्यालय विश्वविद्यालय अनुदान आयोग (UGC) के अधिनियम 1956 की धारा 2(f) एवं 12(B) के अंतर्गत पूर्ण मान्यता प्राप्त है।
+                        </p>
+                        <p class="fs-6 text-white-50 lh-lg">
+                            कथाडीह, रायपुर में 50 एकड़ के विशाल हरित परिसर में स्थित यह विश्वविद्यालय आधुनिक स्टूडियो, कंप्यूटर लैब, एफएम रेडियो 90.8 तथा 25,000 से अधिक ग्रन्थों से समृद्ध पुस्तकालय के माध्यम से मीडिया शिक्षा को नई दिशा दे रहा है।
+                        </p>
+                    </div>
+                    <a href="#all-programs" class="btn btn-warning mt-3 px-4 py-2 fw-bold shadow">
+                        शैक्षणिक विभाग देखें &gt;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Programmes Area with Tabs -->
+<div class="site-section business_expert_area py-5" id="all-programs">
+    <div class="container px-lg-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-underline position-relative d-inline-block font-serif fw-bold pb-2">
+                <span>पाठ्य-योजना (Programmes)</span>
+            </h2>
+            <p class="text-muted">राष्ट्रीय शिक्षा नीति (NEP 2020) के अनुरूप रोजगारपरक एवं व्यावहारिक पाठ्यक्रम</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="business_tabs_area mb-4">
+            <ul class="nav nav-pills justify-content-center gap-2" id="myTab" role="tablist">
+                @for (int i = 0; i < Model.ProgramCategories.Count; i++)
+                {
+                    var cat = Model.ProgramCategories[i];
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link @(i == 0 ? "active bg-brand-primary text-white" : "text-dark bg-white border") fw-bold px-4 py-2 rounded-pill shadow-sm"
+                                id="@cat.Id-tab" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#@cat.Id" 
+                                type="button" 
+                                role="tab">
+                            @cat.Title
+                        </button>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-content" id="myTabContent">
+            @for (int i = 0; i < Model.ProgramCategories.Count; i++)
+            {
+                var cat = Model.ProgramCategories[i];
+                <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="@cat.Id" role="tabpanel">
+                    <div class="row g-4">
+                        @foreach (var prog in cat.Programs)
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                <div class="course-1-item card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white hover-shadow-lg transition">
+                                    <figure class="thumbnail position-relative m-0" style="height: 180px;">
+                                        <img src="@prog.ImageUrl" alt="@prog.Title" class="w-100 h-100 object-fit-cover">
+                                        <div class="category position-absolute bottom-0 start-0 m-2 badge bg-brand-dark text-warning">
+                                            @prog.Duration
+                                        </div>
+                                    </figure>
+                                    <div class="course-1-content p-4 d-flex flex-column justify-content-between flex-grow-1">
+                                        <div>
+                                            <h5 class="fw-bold font-serif text-dark mb-2">@prog.Title</h5>
+                                            <p class="text-secondary small line-clamp-3 mb-3">@prog.Description</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between pt-3 border-top">
+                                            <span class="text-warning small fw-bold"><i class="bi bi-mortarboard-fill me-1"></i> KTUJM</span>
+                                            <button type="button" class="btn btn-outline-primary btn-sm fw-bold px-3" data-bs-toggle="modal" data-bs-target="#admissionModal" data-inquire-course="@prog.Title">
+                                                आवेदन / पूछताछ
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- 5. Pool Area: Central Library -->
+<section class="pool-area section-padding-100 bg-img position-relative text-white py-5" id="library" style="background: linear-gradient(rgba(30, 16, 34, 0.88), rgba(74, 21, 75, 0.9)), url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;">
+    <div class="container px-lg-5 position-relative" style="z-index: 2;">
+        <div class="row justify-content-end">
+            <div class="col-12 col-lg-8">
+                <div class="pool-content text-start">
+                    <div class="section-heading text-white">
+                        <h2 class="display-6 fw-bold mb-3 font-serif">केंद्रीय मीडिया पुस्तकालय</h2>
+                        <p class="lead fs-6 text-light lh-lg">
+                            के.टी.यू.जे.एम. का केंद्रीय पुस्तकालय 25,000 से अधिक पुस्तकों, दुर्लभ ऐतिहासिक पत्र-पत्रिकाओं, पुराने समाचार-पत्रों की जिल्दबंद प्रतियों तथा राष्ट्रीय व अंतर्राष्ट्रीय शोध पत्रिकाओं का विपुल भंडार है।
+                        </p>
+                        <p class="fs-6 text-white-50 lh-lg">
+                            इनफ्लिबनेट ई-शोधसिंधु डिजिटल पहुंच, डेलनेट अंतर-पुस्तकालय सहयोग एवं स्वचालित बारकोड ट्रैकिंग के साथ यह पुस्तकालय मीडिया शोधार्थियों और विद्यार्थियों के लिए ज्ञान का अप्रतिम केंद्र है।
+                        </p>
+                    </div>
+                    <a href="#about" class="btn btn-warning mt-3 px-4 py-2 fw-bold shadow">
+                        पुस्तकालय पोर्टल देखें &gt;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. Faculty Members -->
+<div class="site-section py-5 bg-light border-bottom" id="faculty">
+    <div class="container px-lg-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-underline position-relative d-inline-block font-serif fw-bold pb-2">
+                <span>शिक्षक समूह</span>
+            </h2>
+            <p class="text-muted">अनुभवी प्राध्यापक, वरिष्ठ पत्रकार एवं विषय विशेषज्ञ जो भावी मीडियाकर्मियों का मार्गदर्शन कर रहे हैं</p>
+        </div>
+
+        <div class="row g-4">
+            @foreach (var prof in Model.Faculty)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white text-center p-3">
+                        <img src="@prof.ImageUrl" alt="@prof.Name" class="rounded-4 mx-auto object-fit-cover mb-3" style="width: 120px; height: 120px;">
+                        <h5 class="fw-bold font-serif text-dark mb-1">@prof.Name</h5>
+                        <p class="text-primary small fw-semibold mb-1">@prof.Designation</p>
+                        <span class="badge bg-light text-secondary border w-auto mx-auto px-3 py-1">@prof.Department</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- 7. Webinar & National Seminars -->
+<div class="site-section py-5 bg-white" id="events">
+    <div class="container px-lg-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-underline position-relative d-inline-block font-serif fw-bold pb-2">
+                <span>वेबिनार एवं राष्ट्रीय कॉन्क्लेव</span>
+            </h2>
+            <p class="text-muted">राष्ट्रीय संगोष्ठियों, दूरदर्शन साक्षात्कारों एवं बौद्धिक विमर्श की प्रमुख झलकियाँ</p>
+        </div>
+
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+                <div class="ratio ratio-16x9 rounded-4 shadow overflow-hidden">
+                    <iframe src="https://www.youtube.com/embed/aky6LDZlLz4" title="के.टी.यू.जे.एम. परिसर एवं मीडिया परिचर्चा" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="p-4 bg-light rounded-4 border-start border-4 border-warning shadow-sm">
+                    <span class="badge bg-danger text-white uppercase px-2.5 py-1 fw-bold mb-2">राष्ट्रीय कॉन्क्लेव</span>
+                    <h4 class="fw-bold font-serif text-dark mb-2">मीडिया एवं डिजिटल पत्रकारिता के क्षेत्र में उभरती संभावनाएँ</h4>
+                    <p class="text-muted small mb-3"><i class="bi bi-calendar-event text-warning me-1"></i> विशेष प्रसारण • डीडी न्यूज़ एवं आकाशवाणी कवरेज</p>
+                    <p class="text-secondary small lh-lg mb-4">
+                        वरिष्ठ संपादकों एवं मीडिया विशेषज्ञों द्वारा भारतीय प्रसारण, कृत्रिम बुद्धिमत्ता तथा सामुदायिक रेडियो के प्रसार पर विचारोत्तेजक परिचर्चा।
+                    </p>
+                    <a href="https://youtube.com" target="_blank" class="btn btn-outline-dark btn-sm fw-bold">
+                        यूट्यूब पर अधिक देखें <i class="bi bi-box-arrow-up-right ms-1 text-warning"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Admission Modal Dialog -->
+<div class="modal fade" id="admissionModal" tabindex="-1" aria-labelledby="admissionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-brand-primary text-white">
+                <h5 class="modal-title fw-bold" id="admissionModalLabel">
+                    <i class="bi bi-mortarboard-fill text-warning me-2"></i> प्रवेश परामर्श एवं पूछताछ 2026-27
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div id="inquiryFeedback" class="d-none"></div>
+                <form id="admissionInquiryForm">
+                    <div class="mb-3">
+                        <label for="inquiryName" class="form-label small fw-bold">पूरा नाम *</label>
+                        <input type="text" class="form-control" id="inquiryName" placeholder="अपना नाम दर्ज करें" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inquiryEmail" class="form-label small fw-bold">ईमेल पता *</label>
+                        <input type="email" class="form-control" id="inquiryEmail" placeholder="name@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inquiryPhone" class="form-label small fw-bold">मोबाइल / व्हाट्सएप नंबर *</label>
+                        <input type="tel" class="form-control" id="inquiryPhone" placeholder="10 अंकों का मोबाइल नंबर" pattern="[0-9]{10}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inquiryCourse" class="form-label small fw-bold">इच्छित पाठ्यक्रम *</label>
+                        <select class="form-select" id="inquiryCourse" required>
+                            <option value="" disabled selected>पाठ्यक्रम चुनें</option>
+                            <option value="PG Diploma in Broadcast Journalism">पीजी डिप्लोमा इन ब्रॉडकास्ट जर्नलिज्म</option>
+                            <option value="PG Diploma in Photography">पीजी डिप्लोमा इन फोटोग्राफी</option>
+                            <option value="PG Diploma in Desktop Publishing">पीजी डिप्लोमा इन डेस्कटॉप पब्लिशिंग</option>
+                            <option value="PG Diploma in Public Health & Mass Communication">पीजी डिप्लोमा इन पब्लिक हेल्थ कम्युनिकेशन</option>
+                            <option value="B.A. in Mass Communication">बी.ए. जनसंचार (Mass Communication)</option>
+                            <option value="B.A. in Electronic Media">बी.ए. इलेक्ट्रॉनिक मीडिया</option>
+                            <option value="Bachelor of Business Administration (BBA)">बीबीए (BBA)</option>
+                            <option value="M.A. in Mass Communication">एम.ए. जनसंचार</option>
+                            <option value="M.A. in Electronic Media">एम.ए. इलेक्ट्रॉनिक मीडिया</option>
+                            <option value="M.A. in Advertising & Public Relations">एम.ए. विज्ञापन एवं जनसंपर्क</option>
+                            <option value="Master of Journalism (M.J.)">मास्टर ऑफ जर्नलिज्म (M.J.)</option>
+                            <option value="Ph.D. in Journalism & Mass Communication">पीएच-डी पत्रकारिता एवं जनसंचार</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100 fw-bold py-2 shadow">
+                        प्रवेश पूछताछ सबमिट करें
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

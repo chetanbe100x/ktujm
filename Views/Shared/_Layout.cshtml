@@ -1,0 +1,287 @@
+@model KtujmWeb.Models.HomeViewModel
+<!DOCTYPE html>
+<html lang="@(Model?.Language == "hi" ? "hi" : "en")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(Model?.Language == "hi" ? "कुशाभाऊ ठाकरे पत्रकारिता एवं जनसंचार विश्वविद्यालय, रायपुर" : "Kushabhau Thakre University of Journalism and Mass Communication")</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Site Stylesheet -->
+    <link rel="stylesheet" href="~/css/site.css" />
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.svg" type="image/x-icon" />
+</head>
+<body data-bs-spy="scroll" data-bs-target="#site-navbar" data-bs-offset="200">
+
+    <!-- Top Header Bar matching HJU structure -->
+    <div class="top-header-bar bg-brand-primary text-white py-2 border-bottom border-secondary border-opacity-25">
+        <div class="container-fluid px-lg-5">
+            <div class="row align-items-center">
+                <!-- University Logo & Brand on Left -->
+                <div class="col-lg-5 col-12 text-center text-lg-start mb-2 mb-lg-0">
+                    <a href="@Url.Action("Index", "Home")" class="d-inline-flex align-items-center text-decoration-none text-white">
+                        <div class="university-logo-crest me-3">
+                            <svg viewBox="0 0 100 100" width="60" height="60" fill="currentColor">
+                                <circle cx="50" cy="50" r="46" fill="#4a154b" stroke="#d97706" stroke-width="3" />
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 2" />
+                                <path d="M50 18 L62 46 L54 74 L50 68 L46 74 L38 46 Z" fill="#ffffff" />
+                                <circle cx="50" cy="46" r="3" fill="#4a154b" />
+                                <path d="M28 42 A 26 26 0 0 1 72 42" fill="none" stroke="#d97706" stroke-width="3" />
+                                <path d="M30 76 Q50 72 50 78 Q50 72 70 76 L68 84 Q50 80 50 84 Q50 80 32 84 Z" fill="#d97706" />
+                            </svg>
+                        </div>
+                        <div class="text-start">
+                            <div class="text-warning fw-bold small text-uppercase" style="font-size: 11px; letter-spacing: 0.5px;">
+                                @(Model?.Language == "hi" ? "छ.ग. शासन अधिनियम 24/2004 द्वारा स्थापित" : "Govt. of Chhattisgarh Act 24 of 2004 • UGC 2(f) & 12(B)")
+                            </div>
+                            <div class="fw-bold fs-5 text-white lh-sm">
+                                @(Model?.Language == "hi" ? Model.University.NameHi : Model.University.NameEn)
+                            </div>
+                            <div class="text-white-50 small" style="font-size: 12px;">
+                                @(Model?.Language == "hi" ? "कथाडीह परिसर, रायपुर (छ.ग.)" : "Kathadih Campus, Raipur (C.G.) - 492013")
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Utility Links, Social, Webmail, ERP & Language on Right -->
+                <div class="col-lg-7 col-12 text-center text-lg-end">
+                    <!-- Top row: Payment & Socials -->
+                    <div class="d-inline-flex align-items-center flex-wrap justify-content-center justify-content-lg-end gap-3 mb-1">
+                        <a target="_blank" href="https://onlinesbi.sbi.bank.in/sbicollect/icollecthome.htm" class="btn btn-warning btn-sm fw-bold px-3 py-1 shadow-sm">
+                            <i class="bi bi-credit-card me-1"></i> @(Model?.Language == "hi" ? "भुगतान करें (SBI)" : "Pay Online")
+                        </a>
+                        <div class="social-links d-inline-flex gap-2">
+                            <a href="https://facebook.com" target="_blank" class="text-white text-opacity-75 hover-warning"><i class="bi bi-facebook fs-6"></i></a>
+                            <a href="https://twitter.com" target="_blank" class="text-white text-opacity-75 hover-warning"><i class="bi bi-twitter-x fs-6"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="text-white text-opacity-75 hover-warning"><i class="bi bi-instagram fs-6"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="text-white text-opacity-75 hover-warning"><i class="bi bi-youtube fs-6"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom row: Webmail, Login, Contact & Language Dropdown -->
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-3 small text-white-50">
+                        <a href="https://ktujm.ac.in/webmail" target="_blank" class="text-white text-decoration-none hover-warning">
+                            <i class="bi bi-envelope me-1 text-warning"></i> @(Model?.Language == "hi" ? "वैबमेल" : "Webmail")
+                        </a>
+                        <span>|</span>
+                        <a href="https://ktujm.opencompas.com" target="_blank" class="text-white text-decoration-none hover-warning">
+                            <i class="bi bi-box-arrow-in-right me-1 text-warning"></i> @(Model?.Language == "hi" ? "लॉग इन (ERP)" : "Login (ERP)")
+                        </a>
+                        <span>|</span>
+                        <a href="#contact" class="text-white text-decoration-none hover-warning">
+                            <i class="bi bi-geo-alt me-1 text-warning"></i> @(Model?.Language == "hi" ? "संपर्क करें" : "Contact Us")
+                        </a>
+                        <span>|</span>
+                        <!-- Language Switcher Dropdown matching HJU -->
+                        <div class="dropdown d-inline-block">
+                            <button class="btn btn-outline-light btn-sm dropdown-toggle py-0 px-2 fw-semibold" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-globe me-1 text-warning"></i> @(Model?.Language == "hi" ? "हिंदी" : "English")
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow">
+                                <li><a class="dropdown-item @(Model?.Language == "hi" ? "active" : "")" href="/hindi">हिंदी</a></li>
+                                <li><a class="dropdown-item @(Model?.Language == "en" ? "active" : "")" href="/en">English</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar matching HJU exact structure -->
+    <nav id="site-navbar" class="navbar navbar-expand-lg navbar-dark bg-brand-dark sticky-top shadow-sm py-0">
+        <div class="container-fluid px-lg-5">
+            <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold text-uppercase small" style="letter-spacing: 0.5px;">
+                    <li class="nav-item">
+                        <a class="nav-link py-3 px-3 active text-warning" href="@(Model?.Language == "hi" ? Url.Action("Hindi", "Home") : Url.Action("Index", "Home"))">
+                            @(Model?.Language == "hi" ? "मुख्य पटल" : "Home")
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle py-3 px-3 text-white" href="#" data-bs-toggle="dropdown">
+                            @(Model?.Language == "hi" ? "हमारे बारे में" : "About Us")
+                        </a>
+                        <ul class="dropdown-menu shadow border-0">
+                            <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "विश्‍वविद्यालय: एक परिचय" : "University at a Glance")</a></li>
+                            <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "दृष्टि और ध्‍येय" : "Vision and Mission")</a></li>
+                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "विश्वविद्यालय अधिनियम (2004)" : "University Act (Act 24 of 2004)")</a></li>
+                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "यूजीसी मान्यता (2f & 12B)" : "UGC Recognition")</a></li>
+                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "प्रतीक-चिह्न एवं कुलगीत" : "University Insignia & Anthem")</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle py-3 px-3 text-white" href="#" data-bs-toggle="dropdown">
+                            @(Model?.Language == "hi" ? "संचालन" : "Administration")
+                        </a>
+                        <ul class="dropdown-menu shadow border-0">
+                            <li><a class="dropdown-item" href="#leadership">@(Model?.Language == "hi" ? "कुलाधिपति" : "Chancellor")</a></li>
+                            <li><a class="dropdown-item" href="#leadership">@(Model?.Language == "hi" ? "कुलगुरु / कुलपति" : "Vice-Chancellor")</a></li>
+                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "कार्य परिषद" : "Executive Council")</a></li>
+                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "विद्या परिषद" : "Academic Council")</a></li>
+                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "प्रशासनिक अधिकारी" : "University Officers")</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle py-3 px-3 text-white" href="#" data-bs-toggle="dropdown">
+                            @(Model?.Language == "hi" ? "शिक्षण" : "Academics")
+                        </a>
+                        <ul class="dropdown-menu shadow border-0">
+                            <li><a class="dropdown-item" href="#all-programs">@(Model?.Language == "hi" ? "पाठ्य-योजना (Programmes)" : "Programmes of Study")</a></li>
+                            <li><a class="dropdown-item" href="#all-programs">@(Model?.Language == "hi" ? "विश्वविद्यालय के विभाग" : "Departments")</a></li>
+                            <li><a class="dropdown-item" href="#all-programs">@(Model?.Language == "hi" ? "शोध (पीएच-डी)" : "Research (Ph.D.)")</a></li>
+                            <li><a class="dropdown-item" href="#faculty">@(Model?.Language == "hi" ? "शिक्षक समूह" : "Faculty Members")</a></li>
+                            <li><a class="dropdown-item" href="#library">@(Model?.Language == "hi" ? "केंद्रीय पुस्तकालय" : "Central Library")</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-3 px-3 text-white" href="#admissions">
+                            <span class="badge bg-warning text-dark me-1">@(Model?.Language == "hi" ? "प्रवेश" : "Admission")</span> 2026-27
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-3 px-3 text-white" href="#announcements">
+                            @(Model?.Language == "hi" ? "घोषणाएँ" : "Announcements")
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle py-3 px-3 text-white" href="#" data-bs-toggle="dropdown">
+                            @(Model?.Language == "hi" ? "गतिविधि" : "Activities")
+                        </a>
+                        <ul class="dropdown-menu shadow border-0">
+                            <li><a class="dropdown-item" href="#events">@(Model?.Language == "hi" ? "राष्ट्रीय सेमिनार" : "National Seminars")</a></li>
+                            <li><a class="dropdown-item" href="#events">@(Model?.Language == "hi" ? "कैंपस न्यूज" : "Campus News")</a></li>
+                            <li><a class="dropdown-item" href="#events">@(Model?.Language == "hi" ? "मीडिया कवरेज" : "Media Coverage")</a></li>
+                            <li><a class="dropdown-item" href="#events">@(Model?.Language == "hi" ? "दीक्षांत समारोह" : "Convocation")</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-3 px-3 text-white" href="#gallery">
+                            @(Model?.Language == "hi" ? "चित्र-वीथी" : "Gallery")
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-3 px-3 text-white" href="#announcements">
+                            @(Model?.Language == "hi" ? "भर्ती" : "Recruitment")
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Search button on navbar right -->
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="bi bi-search me-1"></i> @(Model?.Language == "hi" ? "खोजें" : "Search")
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Body Content -->
+    @RenderBody()
+
+    <!-- Footer matching HJU structure -->
+    <footer id="contact" class="footer-area bg-brand-dark text-white pt-5 pb-3 border-top border-warning border-3">
+        <div class="container px-lg-5">
+            <div class="row g-4 mb-4">
+                <!-- Col 1: Important Links -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-warning fw-bold text-uppercase pb-2 border-bottom border-secondary mb-3">
+                        @(Model?.Language == "hi" ? "महत्त्वपूर्ण लिंक" : "Important Links")
+                    </h5>
+                    <ul class="list-unstyled lh-lg small text-white-50">
+                        <li><a target="_blank" href="https://rajbhavan.cg.gov.in" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "राज भवन, छत्तीसगढ़" : "Raj Bhavan, Chhattisgarh")</a></li>
+                        <li><a target="_blank" href="https://highereducation.cg.gov.in" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "उच्च शिक्षा विभाग, छ.ग." : "Department of Higher Education C.G.")</a></li>
+                        <li><a target="_blank" href="https://www.ugc.ac.in/" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "विश्वविद्यालय अनुदान आयोग (UGC)" : "University Grants Commission (UGC)")</a></li>
+                        <li><a target="_blank" href="http://dprcg.gov.in" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "सूचना एवं जनसम्पर्क विभाग (DIPR)" : "Information & Public Relations Dept.")</a></li>
+                        <li><a target="_blank" href="https://www.abhilekh-patal.in/" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "भारतीय राष्ट्रीय अभिलेखागार (NAI)" : "National Archives of India (NAI)")</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 2: Media Links -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-warning fw-bold text-uppercase pb-2 border-bottom border-secondary mb-3">
+                        @(Model?.Language == "hi" ? "मीडिया लिंक" : "Media Links")
+                    </h5>
+                    <ul class="list-unstyled lh-lg small text-white-50">
+                        <li><a target="_blank" href="http://presscouncil.nic.in/" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "भारतीय प्रेस परिषद्" : "Press Council of India")</a></li>
+                        <li><a target="_blank" href="https://editorsguild.in/" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "एडिटर्स गिल्ड ऑफ इंडिया" : "Editors Guild of India")</a></li>
+                        <li><a target="_blank" href="https://www.ibfindia.com/" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "इंडियन ब्रॉडकास्टिंग फाउंडेशन" : "Indian Broadcasting & Digital Foundation")</a></li>
+                        <li><a href="#all-programs" class="text-white-50 text-decoration-none hover-warning"><i class="bi bi-chevron-right text-warning me-1"></i> @(Model?.Language == "hi" ? "रेडियो प्रतिध्वनि 90.8 FM" : "Radio Pratidhwani 90.8 FM")</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact Us -->
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="text-warning fw-bold text-uppercase pb-2 border-bottom border-secondary mb-3">
+                        @(Model?.Language == "hi" ? "संपर्क करें" : "Contact Us")
+                    </h5>
+                    <div class="small text-white-50 lh-lg">
+                        <p class="mb-2"><i class="bi bi-geo-alt-fill text-warning me-2"></i> @Model.University.Location</p>
+                        <p class="mb-2"><i class="bi bi-telephone-fill text-warning me-2"></i> @Model.University.Phone</p>
+                        <p class="mb-2"><i class="bi bi-envelope-fill text-warning me-2"></i> @Model.University.Email</p>
+                        <p class="mb-0 text-white-50"><i class="bi bi-shield-check text-warning me-2"></i> @Model.University.Act</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="row pt-3 border-top border-secondary border-opacity-25 small text-white-50">
+                <div class="col-md-6 text-center text-md-start">
+                    @(Model?.Language == "hi" 
+                        ? $"कॉपीराइट © {DateTime.Now.Year}. समस्त अधिकार ktujm.ac.in के पास सुरक्षित हैं।" 
+                        : $"Copyright © {DateTime.Now.Year}. All rights reserved with ktujm.ac.in.")
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                    <span>Central India's First Media Gurukul</span> • 
+                    <a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a> • 
+                    <a href="#" class="text-white-50 text-decoration-none">RTI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Modal Dialog -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-brand-primary text-white">
+                    <h5 class="modal-title"><i class="bi bi-search me-2 text-warning"></i> Search KTUJM Portal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search courses, circulars, departments..." id="portalSearchInput">
+                        <button class="btn btn-warning fw-bold" type="button">Search</button>
+                    </div>
+                    <div class="small text-muted">
+                        Popular searches: <span class="badge bg-light text-dark me-1 border">Mass Communication</span>
+                        <span class="badge bg-light text-dark me-1 border">Radio 90.8 FM</span>
+                        <span class="badge bg-light text-dark me-1 border">Time Table</span>
+                        <span class="badge bg-light text-dark border">Ph.D.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

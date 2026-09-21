@@ -1,0 +1,363 @@
+@model KtujmWeb.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home - Kushabhau Thakre University";
+}
+
+<!-- Marquee for Important Admissions & Examination News matching HJU -->
+<div class="bg-warning text-dark py-2 px-3 border-bottom border-warning shadow-sm">
+    <div class="container-fluid px-lg-5 d-flex align-items-center">
+        <span class="badge bg-dark text-warning fw-bold uppercase me-3 shrink-0">LATEST ANNOUNCEMENTS</span>
+        <marquee direction="left" onmouseover="this.stop();" onmouseout="this.start();" class="fw-semibold small m-0">
+            <a href="#admissions" class="text-dark text-decoration-none me-4">
+                <strong>1. Applications invited for Academic Session 2026-27 in UG, PG, and P.G. Diploma Programmes.</strong> <span class="badge bg-danger text-white">NEW</span>
+            </a>
+            <a href="#announcements" class="text-dark text-decoration-none me-4">
+                <strong>2. Time-Table released for End-Semester Examinations (Regular & ATKT) June-July 2026.</strong> <span class="badge bg-danger text-white">NEW</span>
+            </a>
+            <a href="#events" class="text-dark text-decoration-none">
+                <strong>3. Two-Day National Media Conclave on 'AI & The Future of Indian Journalism' scheduled for October 2026.</strong>
+            </a>
+        </marquee>
+    </div>
+</div>
+
+<!-- 1. Hero Banner Slideshow matching HJU cover -->
+<div class="hero-section position-relative">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="height: 520px;">
+                <img src="https://images.unsplash.com/photo-1578022761797-b8636ac1773c?auto=format&fit=crop&q=80&w=1920" class="d-block w-100 h-100 object-fit-cover" alt="Broadcast Studio">
+                <div class="carousel-caption text-start d-flex flex-column justify-content-center h-100 bg-gradient-dark-overlay px-4 px-md-5">
+                    <span class="badge bg-warning text-dark text-uppercase px-3 py-1.5 fw-bold mb-3 d-inline-block w-auto" style="width: fit-content;">State-of-the-Art Broadcast Television Floor</span>
+                    <h1 class="display-5 fw-black font-serif text-white text-shadow">Shaping Ethical Media Leaders.<br />Inspiring Democratic Futures.</h1>
+                    <p class="lead text-white-50 max-w-700">Equipping media scholars with multi-camera television production, virtual chroma floors, and investigative rigor under Act 24 of 2004.</p>
+                    <div class="mt-3">
+                        <a href="#all-programs" class="btn btn-warning btn-lg fw-bold me-2 px-4 shadow">Explore Programmes</a>
+                        <a href="#admissions" class="btn btn-outline-light btn-lg fw-semibold px-4">Admission 2026-27</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="height: 520px;">
+                <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1920" class="d-block w-100 h-100 object-fit-cover" alt="Kathadih Campus">
+                <div class="carousel-caption text-start d-flex flex-column justify-content-center h-100 bg-gradient-dark-overlay px-4 px-md-5">
+                    <span class="badge bg-warning text-dark text-uppercase px-3 py-1.5 fw-bold mb-3 d-inline-block w-auto" style="width: fit-content;">50-Acre Lush Green Campus, Raipur</span>
+                    <h1 class="display-5 fw-black font-serif text-white text-shadow">Central India's Premier<br />Dedicated Media Gurukul</h1>
+                    <p class="lead text-white-50 max-w-700">Home to Radio Pratidhwani 90.8 FM, multimedia editing suites, national conclaves, and over 25,000 archival volumes.</p>
+                    <div class="mt-3">
+                        <a href="#about" class="btn btn-warning btn-lg fw-bold me-2 px-4 shadow">About University</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg fw-semibold px-4">Contact Campus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="height: 520px;">
+                <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&q=80&w=1920" class="d-block w-100 h-100 object-fit-cover" alt="Newsroom">
+                <div class="carousel-caption text-start d-flex flex-column justify-content-center h-100 bg-gradient-dark-overlay px-4 px-md-5">
+                    <span class="badge bg-warning text-dark text-uppercase px-3 py-1.5 fw-bold mb-3 d-inline-block w-auto" style="width: fit-content;">NEP 2020 Curricular Framework</span>
+                    <h1 class="display-5 fw-black font-serif text-white text-shadow">Where Classical Ethics Meet<br />Modern Digital Storytelling</h1>
+                    <p class="lead text-white-50 max-w-700">Comprehensive Undergraduate, Postgraduate, and Doctoral Programs tailored for the evolving media industry.</p>
+                    <div class="mt-3">
+                        <a href="#all-programs" class="btn btn-warning btn-lg fw-bold me-2 px-4 shadow">View Courses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    
+    <!-- Anchor Down Link matching HJU -->
+    <a id="anchor-down" class="anchor-down d-none d-md-block text-center" href="#leadership">
+        <i class="bi bi-chevron-double-down fs-4 text-warning"></i>
+    </a>
+</div>
+
+<!-- 2. Leadership Dignitaries Section matching HJU testimony-wrap -->
+<div class="site-section py-5 bg-light border-bottom" id="leadership">
+    <div class="container px-lg-5">
+        <div class="row g-4 justify-content-center">
+            @foreach (var leader in Model.Leadership)
+            {
+                <div class="col-lg-6 col-md-12">
+                    <div class="card border-0 shadow-sm rounded-4 h-100 p-4 p-md-4 bg-white hover-shadow-lg transition">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-sm-5 text-center">
+                                <div class="leadership-img-wrapper position-relative mx-auto">
+                                    <img src="@leader.ImageUrl" alt="@leader.Name" class="img-fluid rounded-4 shadow-sm object-fit-cover" style="height: 190px; width: 100%;">
+                                    <span class="badge bg-brand-primary text-warning position-absolute bottom-0 start-50 translate-middle-x mb-2 px-3 py-1 shadow-sm">
+                                        KTUJM Leadership
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <h6 class="text-warning fw-bold text-uppercase small mb-1" style="font-size: 11px;">@leader.Title</h6>
+                                <h4 class="fw-black font-serif text-dark mb-1">@leader.Name</h4>
+                                <p class="text-muted small fw-semibold mb-2">@leader.Designation</p>
+                                <p class="fst-italic text-secondary small lh-base border-start border-3 border-warning ps-3 mb-3">
+                                    "@leader.Quote"
+                                </p>
+                                <a href="@leader.ProfileUrl" class="btn btn-outline-dark btn-sm fw-bold px-3">
+                                    View Profile <i class="bi bi-arrow-right ms-1 text-warning"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- 3. Pool Area: About University matching HJU pool-area with background image -->
+<section class="pool-area section-padding-100 bg-img position-relative text-white py-5" id="about" style="background: linear-gradient(rgba(30, 16, 34, 0.85), rgba(74, 21, 75, 0.9)), url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;">
+    <div class="container px-lg-5 py-5">
+        <div class="row justify-content-end">
+            <div class="col-12 col-lg-8">
+                <div class="pool-content p-4 p-md-5 rounded-4 shadow-lg" style="background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                    <div class="section-heading text-white mb-4">
+                        <span class="badge bg-warning text-dark text-uppercase px-3 py-1 fw-bold mb-2">First Media Gurukul</span>
+                        <h2 class="display-6 fw-black font-serif text-warning">University at a Glance</h2>
+                        <p class="text-justify text-white-50 leading-relaxed mt-3">
+                            In an era marked by rapid expansion, technological disruption, and the evolving socio-cultural impact of media, the establishment of <strong>Kushabhau Thakre Patrakarita Avam Jansanchar Vishwavidyalaya (KTUJM)</strong> by the Government of Chhattisgarh under Act No. 24 of 2004 stands as a landmark institutional achievement in Central India.
+                        </p>
+                        <p class="text-justify text-white-50 leading-relaxed">
+                            Established as the first specialized media university in the region, KTUJM fulfills the vital need for high-caliber professional education, ethical journalism, television broadcasting, digital storytelling, and communication research. Spanning a vibrant 50-acre green campus at Kathadih, Raipur, KTUJM equips future media leaders with industry-grade multi-camera production studios, radio transmission facilities, and national-standard academic curricula.
+                        </p>
+                    </div>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#all-programs" class="btn btn-warning btn-md fw-bold px-4 shadow">More Info</a>
+                        <a href="#contact" class="btn btn-outline-light btn-md fw-semibold px-4">Contact University</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Programmes Section with Tabs matching HJU business_expert_area & nav-tabs -->
+<div class="site-section py-5" id="all-programs">
+    <div class="container px-lg-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-underline text-center display-6 fw-black font-serif text-dark position-relative d-inline-block pb-3">
+                <span>Programmes of Study</span>
+            </h2>
+            <p class="text-muted small mt-2">Comprehensive academic offerings aligned with National Education Policy (NEP 2020)</p>
+        </div>
+
+        <!-- Programmes Nav Tabs matching HJU -->
+        <ul class="nav nav-pills justify-content-center mb-4 gap-2" id="programTabs" role="tablist">
+            @for (int i = 0; i < Model.ProgramCategories.Count; i++)
+            {
+                var cat = Model.ProgramCategories[i];
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-bold px-4 py-2 @(i == 0 ? "active bg-brand-primary text-warning" : "text-dark bg-light")" 
+                            id="@cat.Id-tab" 
+                            data-bs-toggle="pill" 
+                            data-bs-target="#@cat.Id" 
+                            type="button" 
+                            role="tab">
+                        @cat.Title
+                    </button>
+                </li>
+            }
+        </ul>
+
+        <!-- Programmes Tab Panes matching HJU course-1-item -->
+        <div class="tab-content pt-3" id="programTabsContent">
+            @for (int i = 0; i < Model.ProgramCategories.Count; i++)
+            {
+                var cat = Model.ProgramCategories[i];
+                <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="@cat.Id" role="tabpanel">
+                    <div class="row g-4">
+                        @foreach (var prog in cat.Programs)
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden course-card hover-lift transition">
+                                    <div class="position-relative" style="height: 180px;">
+                                        <img src="@prog.ImageUrl" class="card-img-top w-100 h-100 object-fit-cover" alt="@prog.Title">
+                                        <span class="badge bg-brand-primary text-warning position-absolute top-0 start-0 m-2 px-2.5 py-1 small">
+                                            @prog.Duration
+                                        </span>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-between p-4">
+                                        <div>
+                                            <h5 class="card-title fw-bold text-dark font-serif mb-2">@prog.Title</h5>
+                                            <p class="card-text text-secondary small lh-base mb-3">@prog.Description</p>
+                                        </div>
+                                        <div class="pt-2 border-top">
+                                            <button class="btn btn-warning btn-sm fw-bold w-100" data-bs-toggle="modal" data-bs-target="#inquiryModal" onclick="setCourse('@prog.Title')">
+                                                Apply / Inquire
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- 5. Pool Area: Central Library matching HJU pool-area -->
+<section class="pool-area section-padding-100 bg-img position-relative text-white py-5" id="library" style="background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(30, 16, 34, 0.85)), url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;">
+    <div class="container px-lg-5 py-5">
+        <div class="row justify-content-end">
+            <div class="col-12 col-lg-8">
+                <div class="pool-content p-4 p-md-5 rounded-4 shadow-lg" style="background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                    <div class="section-heading text-white mb-4">
+                        <span class="badge bg-warning text-dark text-uppercase px-3 py-1 fw-bold mb-2">Knowledge Repository</span>
+                        <h2 class="display-6 fw-black font-serif text-warning">Central Media Library</h2>
+                        <p class="text-justify text-white-50 leading-relaxed mt-3">
+                            A university library is the intellectual nerve center of academic excellence. The Central Library at Kushabhau Thakre University houses an extensive collection of over 25,000 media volumes, bound newspaper archives dating back several decades, academic journals, and audiovisual documentation.
+                        </p>
+                        <p class="text-justify text-white-50 leading-relaxed">
+                            Equipped with access to the National Digital Library of India (NDLI) and DELNET, the library provides scholars, researchers, and students with exhaustive digital materials on constitutional law, broadcast media, cinema studies, corporate public relations, and investigative communication.
+                        </p>
+                    </div>
+                    <a href="#contact" class="btn btn-warning btn-md fw-bold px-4 shadow">More Info &gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. Faculty Members Carousel / Cards matching HJU -->
+<div class="site-section py-5 bg-light border-bottom" id="faculty">
+    <div class="container px-lg-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-underline text-center display-6 fw-black font-serif text-dark position-relative d-inline-block pb-3">
+                <span>Faculty Members</span>
+            </h2>
+            <p class="text-muted small mt-2">Distinguished academicians, veteran journalists, and media researchers</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            @foreach (var fac in Model.Faculty)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center p-3 bg-white hover-shadow transition">
+                        <div class="rounded-circle overflow-hidden mx-auto mb-3 border border-3 border-warning" style="width: 130px; height: 130px;">
+                            <img src="@fac.ImageUrl" alt="@fac.Name" class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <h5 class="fw-bold text-dark font-serif mb-1">@fac.Name</h5>
+                        <p class="text-warning fw-semibold small mb-1">@fac.Designation</p>
+                        <p class="text-muted small mb-0">Dept. of @fac.Department</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- 7. Campus Walkthrough / Video Section matching HJU Shilanyas -->
+<section class="py-5 bg-brand-dark text-white text-center">
+    <div class="container px-lg-5">
+        <h2 class="display-6 fw-black font-serif text-warning mb-2">Campus Walkthrough & Studios</h2>
+        <p class="text-white-50 small mb-4">Discover the state-of-the-art facilities across the 50-acre Kathadih campus, TV studios, and Radio Pratidhwani 90.8 FM</p>
+        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mx-auto" style="max-width: 960px;">
+            <iframe src="https://www.youtube.com/embed/aky6LDZlLz4" title="KTUJM Campus Tour" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- 8. Seminars & Conclaves matching HJU Special Lectures -->
+<div class="site-section py-5 bg-white border-bottom" id="events">
+    <div class="container px-lg-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-underline text-center display-6 fw-black font-serif text-dark position-relative d-inline-block pb-3">
+                <span>Special Lectures & Media Conclaves</span>
+            </h2>
+            <p class="text-muted small mt-2">National academic dialogue, investigative journalism workshops, and media summits</p>
+        </div>
+
+        <div class="row g-4">
+            @foreach (var ev in Model.Events)
+            {
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-lift transition">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-5">
+                                <img src="@ev.ImageUrl" class="img-fluid h-100 w-100 object-fit-cover" alt="@ev.Title" style="min-height: 200px;">
+                            </div>
+                            <div class="col-md-7 p-4 d-flex flex-column justify-content-between">
+                                <div>
+                                    <span class="badge bg-warning text-dark text-uppercase px-2.5 py-1 small fw-bold mb-2">@ev.Date</span>
+                                    <h5 class="card-title fw-bold font-serif text-dark mb-2">@ev.Title</h5>
+                                    <p class="card-text text-secondary small mb-3">@ev.Description</p>
+                                </div>
+                                <div class="text-muted small">
+                                    <i class="bi bi-geo-alt-fill text-warning me-1"></i> @ev.Venue
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- 9. Admissions CTA Section -->
+<div class="site-section py-5 bg-brand-primary text-white" id="admissions">
+    <div class="container px-lg-5 text-center py-4">
+        <span class="badge bg-warning text-dark text-uppercase px-3 py-1.5 fw-bold mb-3">Admissions Open 2026-27</span>
+        <h2 class="display-5 fw-black font-serif text-white mb-3">Begin Your Journey With KTUJM</h2>
+        <p class="lead text-white-50 max-w-700 mx-auto mb-4">
+            Join Central India's premier media university. Applications are invited for undergraduate, postgraduate, and doctoral degree programmes.
+        </p>
+        <button class="btn btn-warning btn-lg fw-bold px-5 shadow-lg me-3" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+            Apply Now
+        </button>
+        <a href="#all-programs" class="btn btn-outline-light btn-lg fw-semibold px-4">
+            Explore Programmes
+        </a>
+    </div>
+</div>
+
+<!-- Admission Inquiry Modal -->
+<div class="modal fade" id="inquiryModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-brand-primary text-white">
+                <h5 class="modal-title"><i class="bi bi-mortarboard-fill me-2 text-warning"></i> Admission Inquiry 2026-27</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form id="admissionForm" onsubmit="handleInquirySubmit(event)">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-secondary">Full Name</label>
+                        <input type="text" class="form-control" id="inqName" required placeholder="e.g. Ankit Sharma">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-secondary">Email Address</label>
+                        <input type="email" class="form-control" id="inqEmail" required placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-secondary">Phone Number</label>
+                        <input type="tel" class="form-control" id="inqPhone" required placeholder="+91 98765 43210">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-secondary">Selected Programme</label>
+                        <input type="text" class="form-control" id="inqCourse" readonly value="M.A. in Mass Communication">
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100 fw-bold py-2 mt-2">
+                        Submit Inquiry
+                    </button>
+                </form>
+                <div id="inquirySuccess" class="alert alert-success mt-3 d-none text-center small">
+                    Thank you! Your inquiry has been registered. The KTUJM Admissions Cell will contact you shortly.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
