@@ -28,7 +28,7 @@
   </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#site-navbar" data-bs-offset="150">
+<body>
 
   <!-- 1. Top Header Bar matching HJU structure -->
   <div class="top-header-bar text-white py-2" style="position: relative; z-index: 1050;">
@@ -111,12 +111,12 @@
       </button>
 
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold text-uppercase small" style="letter-spacing: 0.5px;">
+        <ul class="navbar-nav mb-2 mb-lg-0 fw-semibold text-uppercase small" style="letter-spacing: 0.3px;">
           <li class="nav-item">
             <a class="nav-link active text-warning" href="index.html">मुख्य पटल</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">हमारे बारे में</a>
+            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">विश्वविद्यालय परिचय</a>
             <ul class="dropdown-menu shadow border-0">
               <li><a class="dropdown-item" href="#about">विश्‍वविद्यालय: एक परिचय</a></li>
               <li><a class="dropdown-item" href="#about">दृष्टि और ध्‍येय</a></li>
@@ -126,7 +126,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">संचालन</a>
+            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">विश्वविद्यालय प्रशासन</a>
             <ul class="dropdown-menu shadow border-0">
               <li><a class="dropdown-item" href="#leadership">कुलाधिपति (माननीय राज्यपाल)</a></li>
               <li><a class="dropdown-item" href="#leadership">कुलगुरु / कुलपति</a></li>
@@ -136,7 +136,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">शिक्षण</a>
+            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">अकादमिक अध्ययन</a>
             <ul class="dropdown-menu shadow border-0">
               <li><a class="dropdown-item" href="#all-programs">पाठ्य-योजना (Programmes)</a></li>
               <li><a class="dropdown-item" href="#all-programs">विश्वविद्यालय के विभाग</a></li>
@@ -151,10 +151,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#announcements">घोषणाएँ</a>
+            <a class="nav-link text-white" href="#announcements">सूचनाएँ एवं घोषणाएँ</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">गतिविधि</a>
+            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">आयोजन एवं गतिविधि</a>
             <ul class="dropdown-menu shadow border-0">
               <li><a class="dropdown-item" href="#webinar">राष्ट्रीय सेमिनार</a></li>
               <li><a class="dropdown-item" href="#webinar">कैंपस न्यूज</a></li>
@@ -163,18 +163,18 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#about">दस्तावेज़</a>
+            <a class="nav-link text-white" href="#documentsModal" data-bs-toggle="modal" data-bs-target="#documentsModal">महत्वपूर्ण दस्तावेज़</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#webinar">चित्र-वीथी</a>
+            <a class="nav-link text-white" href="#webinar">छायाचित्र दीर्घा</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#announcements">भर्ती</a>
+            <a class="nav-link text-white" href="#announcements">नियुक्ति एवं भर्ती</a>
           </li>
         </ul>
 
-        <div class="d-flex align-items-center">
-          <button class="btn btn-outline-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+        <div class="d-flex align-items-center flex-shrink-0">
+          <button class="btn btn-outline-warning btn-sm text-nowrap" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
             <i class="bi bi-search me-1"></i> खोजें
           </button>
         </div>
@@ -799,6 +799,70 @@
               प्रवेश पूछताछ सबमिट करें
             </button>
           </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Official Documents & Statutory Disclosures -->
+  <div class="modal fade" id="documentsModal" tabindex="-1" aria-labelledby="documentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header bg-brand-primary text-white py-3 px-4">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-file-earmark-text text-warning fs-4 me-2"></i>
+            <div>
+              <h5 class="modal-title fw-bold m-0" id="documentsModalLabel">विश्वविद्यालय आधिकारिक दस्तावेज़ एवं विनियम</h5>
+              <small class="text-white-50">Official Documents, Act, Statutes & Regulatory Disclosures</small>
+            </div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4 bg-light">
+          <div class="list-group shadow-sm rounded-3">
+            <a href="#about" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3" data-bs-dismiss="modal">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-file-earmark-pdf text-danger fs-3 me-3"></i>
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark">कुशाभाऊ ठाकरे पत्रकारिता एवं जनसंचार विश्वविद्यालय अधिनियम (क्रमांक 24/2004)</h6>
+                  <p class="text-muted small mb-0">छत्तीसगढ़ राजपत्र (असाधारण) प्राधिकार से प्रकाशित विश्वविद्यालय स्थापना अधिनियम।</p>
+                </div>
+              </div>
+              <span class="badge bg-primary rounded-pill px-3 py-2"><i class="bi bi-download me-1"></i> PDF</span>
+            </a>
+            <a href="#about" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3" data-bs-dismiss="modal">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-file-earmark-check text-success fs-3 me-3"></i>
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark">विश्वविद्यालय अनुदान आयोग (UGC) 2(f) एवं 12(B) मान्यता पत्र</h6>
+                  <p class="text-muted small mb-0">UGC New Delhi statutory central recognition and development grant eligibility order.</p>
+                </div>
+              </div>
+              <span class="badge bg-success rounded-pill px-3 py-2"><i class="bi bi-download me-1"></i> PDF</span>
+            </a>
+            <a href="#all-programs" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3" data-bs-dismiss="modal">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-calendar-check text-warning fs-3 me-3"></i>
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark">शैक्षणिक कैलेंडर एवं परीक्षा नियमावली सत्र 2026-27</h6>
+                  <p class="text-muted small mb-0">Academic Calendar, admission deadlines, semester examination schedule and ordinances.</p>
+                </div>
+              </div>
+              <span class="badge bg-warning text-dark rounded-pill px-3 py-2"><i class="bi bi-download me-1"></i> PDF</span>
+            </a>
+            <a href="#contact" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3" data-bs-dismiss="modal">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-shield-check text-info fs-3 me-3"></i>
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark">सूचना का अधिकार (RTI) सांविधिक प्रकटीकरण</h6>
+                  <p class="text-muted small mb-0">Right to Information Act Section 4(1)(b) voluntary compliance and designated officers.</p>
+                </div>
+              </div>
+              <span class="badge bg-info text-white rounded-pill px-3 py-2"><i class="bi bi-download me-1"></i> PDF</span>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer bg-white border-top py-2 px-4">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">बंद करें (Close)</button>
         </div>
       </div>
     </div>

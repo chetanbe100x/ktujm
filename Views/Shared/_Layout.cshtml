@@ -27,7 +27,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/favicon.svg" type="image/x-icon" />
 </head>
-<body data-bs-spy="scroll" data-bs-target="#site-navbar" data-bs-offset="200">
+<body>
 
     <!-- Top Header Bar matching HJU structure -->
     <div class="top-header-bar bg-brand-primary text-white py-2 border-bottom border-secondary border-opacity-25" style="position: relative; z-index: 1050;">
@@ -113,39 +113,39 @@
             </button>
 
             <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold text-uppercase small" style="letter-spacing: 0.5px;">
+                <ul class="navbar-nav mb-2 mb-lg-0 fw-semibold text-uppercase small" style="letter-spacing: 0.3px;">
                     <li class="nav-item">
-                        <a class="nav-link py-3 px-3 active text-warning" href="@(Model?.Language == "hi" ? Url.Action("Hindi", "Home") : Url.Action("Index", "Home"))">
+                        <a class="nav-link active text-warning" href="@(Model?.Language == "hi" ? Url.Action("Hindi", "Home") : Url.Action("Index", "Home"))">
                             @(Model?.Language == "hi" ? "मुख्य पटल" : "Home")
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle py-3 px-3 text-white" href="#" data-bs-toggle="dropdown">
-                            @(Model?.Language == "hi" ? "हमारे बारे में" : "About Us")
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                            @(Model?.Language == "hi" ? "विश्वविद्यालय परिचय" : "About Us")
                         </a>
                         <ul class="dropdown-menu shadow border-0">
                             <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "विश्‍वविद्यालय: एक परिचय" : "University at a Glance")</a></li>
                             <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "दृष्टि और ध्‍येय" : "Vision and Mission")</a></li>
-                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "विश्वविद्यालय अधिनियम (2004)" : "University Act (Act 24 of 2004)")</a></li>
-                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "यूजीसी मान्यता (2f & 12B)" : "UGC Recognition")</a></li>
-                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "प्रतीक-चिह्न एवं कुलगीत" : "University Insignia & Anthem")</a></li>
+                            <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "विश्वविद्यालय अधिनियम (2004)" : "University Act (Act 24 of 2004)")</a></li>
+                            <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "यूजीसी मान्यता (2f & 12B)" : "UGC Recognition")</a></li>
+                            <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "प्रतीक-चिह्न एवं कुलगीत" : "University Insignia & Anthem")</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle py-3 px-3 text-white" href="#" data-bs-toggle="dropdown">
-                            @(Model?.Language == "hi" ? "संचालन" : "Administration")
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                            @(Model?.Language == "hi" ? "विश्वविद्यालय प्रशासन" : "Administration")
                         </a>
                         <ul class="dropdown-menu shadow border-0">
                             <li><a class="dropdown-item" href="#leadership">@(Model?.Language == "hi" ? "कुलाधिपति" : "Chancellor")</a></li>
                             <li><a class="dropdown-item" href="#leadership">@(Model?.Language == "hi" ? "कुलगुरु / कुलपति" : "Vice-Chancellor")</a></li>
-                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "कार्य परिषद" : "Executive Council")</a></li>
-                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "विद्या परिषद" : "Academic Council")</a></li>
-                            <li><a class="dropdown-item" href="#">@(Model?.Language == "hi" ? "प्रशासनिक अधिकारी" : "University Officers")</a></li>
+                            <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "कार्य परिषद" : "Executive Council")</a></li>
+                            <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "विद्या परिषद" : "Academic Council")</a></li>
+                            <li><a class="dropdown-item" href="#about">@(Model?.Language == "hi" ? "प्रशासनिक अधिकारी" : "University Officers")</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle py-3 px-3 text-white" href="#" data-bs-toggle="dropdown">
-                            @(Model?.Language == "hi" ? "शिक्षण" : "Academics")
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                            @(Model?.Language == "hi" ? "अकादमिक अध्ययन" : "Academics")
                         </a>
                         <ul class="dropdown-menu shadow border-0">
                             <li><a class="dropdown-item" href="#all-programs">@(Model?.Language == "hi" ? "पाठ्य-योजना (Programmes)" : "Programmes of Study")</a></li>
@@ -156,41 +156,46 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-3 px-3 text-white" href="#admissions">
+                        <a class="nav-link text-white" href="#admissionModal" data-bs-toggle="modal" data-bs-target="#admissionModal">
                             <span class="badge bg-warning text-dark me-1">@(Model?.Language == "hi" ? "प्रवेश" : "Admission")</span> 2026-27
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-3 px-3 text-white" href="#announcements">
-                            @(Model?.Language == "hi" ? "घोषणाएँ" : "Announcements")
+                        <a class="nav-link text-white" href="#announcements">
+                            @(Model?.Language == "hi" ? "सूचनाएँ एवं घोषणाएँ" : "Announcements")
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle py-3 px-3 text-white" href="#" data-bs-toggle="dropdown">
-                            @(Model?.Language == "hi" ? "गतिविधि" : "Activities")
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                            @(Model?.Language == "hi" ? "आयोजन एवं गतिविधि" : "Events")
                         </a>
                         <ul class="dropdown-menu shadow border-0">
-                            <li><a class="dropdown-item" href="#events">@(Model?.Language == "hi" ? "राष्ट्रीय सेमिनार" : "National Seminars")</a></li>
-                            <li><a class="dropdown-item" href="#events">@(Model?.Language == "hi" ? "कैंपस न्यूज" : "Campus News")</a></li>
-                            <li><a class="dropdown-item" href="#events">@(Model?.Language == "hi" ? "मीडिया कवरेज" : "Media Coverage")</a></li>
-                            <li><a class="dropdown-item" href="#events">@(Model?.Language == "hi" ? "दीक्षांत समारोह" : "Convocation")</a></li>
+                            <li><a class="dropdown-item" href="#webinar">@(Model?.Language == "hi" ? "राष्ट्रीय सेमिनार" : "National Seminars")</a></li>
+                            <li><a class="dropdown-item" href="#webinar">@(Model?.Language == "hi" ? "कैंपस न्यूज" : "Campus News")</a></li>
+                            <li><a class="dropdown-item" href="#webinar">@(Model?.Language == "hi" ? "मीडिया कवरेज" : "Media Coverage")</a></li>
+                            <li><a class="dropdown-item" href="#webinar">@(Model?.Language == "hi" ? "दीक्षांत समारोह" : "Convocation")</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-3 px-3 text-white" href="#gallery">
-                            @(Model?.Language == "hi" ? "चित्र-वीथी" : "Gallery")
+                        <a class="nav-link text-white" href="#documentsModal" data-bs-toggle="modal" data-bs-target="#documentsModal">
+                            @(Model?.Language == "hi" ? "महत्वपूर्ण दस्तावेज़" : "Documents")
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-3 px-3 text-white" href="#announcements">
-                            @(Model?.Language == "hi" ? "भर्ती" : "Recruitment")
+                        <a class="nav-link text-white" href="#webinar">
+                            @(Model?.Language == "hi" ? "छायाचित्र दीर्घा" : "Visual Gallery")
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#announcements">
+                            @(Model?.Language == "hi" ? "नियुक्ति एवं भर्ती" : "Recruitment")
                         </a>
                     </li>
                 </ul>
 
                 <!-- Search button on navbar right -->
-                <div class="d-flex align-items-center">
-                    <button class="btn btn-outline-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <div class="d-flex align-items-center flex-shrink-0">
+                    <button class="btn btn-outline-warning btn-sm text-nowrap" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
                         <i class="bi bi-search me-1"></i> @(Model?.Language == "hi" ? "खोजें" : "Search")
                     </button>
                 </div>
@@ -261,6 +266,91 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal: Official Documents & Statutory Disclosures -->
+    <div class="modal fade" id="documentsModal" tabindex="-1" aria-labelledby="documentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header bg-brand-primary text-white py-3 px-4">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-file-earmark-text text-warning fs-4 me-2"></i>
+                        <div>
+                            <h5 class="modal-title fw-bold m-0" id="documentsModalLabel">
+                                @(Model?.Language == "hi" ? "विश्वविद्यालय आधिकारिक दस्तावेज़ एवं विनियम" : "Official Documents & Statutory Disclosures")
+                            </h5>
+                            <small class="text-white-50">
+                                @(Model?.Language == "hi" ? "University Act, UGC Recognition, Statutes & Regulatory Disclosures" : "University Act, UGC Recognition, Statutes & Regulatory Disclosures")
+                            </small>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <div class="list-group shadow-sm rounded-3">
+                        <a href="#about" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3" data-bs-dismiss="modal">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-file-earmark-pdf text-danger fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-dark">
+                                        @(Model?.Language == "hi" ? "कुशाभाऊ ठाकरे पत्रकारिता एवं जनसंचार विश्वविद्यालय अधिनियम (क्रमांक 24/2004)" : "KTUJM University Act (Act No. 24 of 2004)")
+                                    </h6>
+                                    <p class="text-muted small mb-0">
+                                        @(Model?.Language == "hi" ? "छत्तीसगढ़ राजपत्र (असाधारण) प्राधिकार से प्रकाशित विश्वविद्यालय स्थापना अधिनियम।" : "Chhattisgarh Extraordinary Gazette publication of University Establishment Act.")
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="badge bg-primary rounded-pill px-3 py-2"><i class="bi bi-download me-1"></i> PDF</span>
+                        </a>
+                        <a href="#about" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3" data-bs-dismiss="modal">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-file-earmark-check text-success fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-dark">
+                                        @(Model?.Language == "hi" ? "विश्वविद्यालय अनुदान आयोग (UGC) 2(f) एवं 12(B) मान्यता पत्र" : "University Grants Commission (UGC) 2(f) & 12(B) Recognition")
+                                    </h6>
+                                    <p class="text-muted small mb-0">
+                                        @(Model?.Language == "hi" ? "UGC नई दिल्ली सांविधिक केंद्रीय मान्यता एवं अनुदान पात्रता अधिसूचना।" : "UGC New Delhi statutory recognition and development grant order.")
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="badge bg-success rounded-pill px-3 py-2"><i class="bi bi-download me-1"></i> PDF</span>
+                        </a>
+                        <a href="#all-programs" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3" data-bs-dismiss="modal">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-calendar-check text-warning fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-dark">
+                                        @(Model?.Language == "hi" ? "शैक्षणिक कैलेंडर एवं परीक्षा नियमावली सत्र 2026-27" : "Academic Calendar & Examination Ordinances 2026-27")
+                                    </h6>
+                                    <p class="text-muted small mb-0">
+                                        @(Model?.Language == "hi" ? "प्रवेश समय-सीमा, सेमेस्टर परीक्षा समय-सारणी एवं अध्यादेश।" : "Academic schedule, admission deadlines, semester examinations and ordinances.")
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="badge bg-warning text-dark rounded-pill px-3 py-2"><i class="bi bi-download me-1"></i> PDF</span>
+                        </a>
+                        <a href="#contact" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3" data-bs-dismiss="modal">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-shield-check text-info fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-dark">
+                                        @(Model?.Language == "hi" ? "सूचना का अधिकार (RTI) सांविधिक प्रकटीकरण" : "Right to Information (RTI) Statutory Declaration")
+                                    </h6>
+                                    <p class="text-muted small mb-0">
+                                        @(Model?.Language == "hi" ? "सूचना का अधिकार अधिनियम धारा 4(1)(b) स्वतः संज्ञान प्रकटीकरण।" : "Right to Information Act Section 4(1)(b) voluntary statutory compliance.")
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="badge bg-info text-white rounded-pill px-3 py-2"><i class="bi bi-download me-1"></i> PDF</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer bg-white border-top py-2 px-4">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">@(Model?.Language == "hi" ? "बंद करें" : "Close")</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Search Modal Dialog -->
     <div class="modal fade" id="searchModal" tabindex="-1">
