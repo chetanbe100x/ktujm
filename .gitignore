@@ -1,25 +1,32 @@
-# Logs
-logs
-*.log
+## .NET / Visual Studio Ignores
+bin/
+obj/
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.dbmdl
+*.jfm
+*.pidb
+*.booproj
+*.sln.docstates
+
+## Publishing & Build Output
+publish/
+*.publishproj
+*.azurePubxml
+App_Data/
+
+## Node / NPM (if any used)
+node_modules/
+dist/
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-.vercel
-
-# Editor directories and files
+## OS & Editor
+.DS_Store
+Thumbs.db
+.idea/
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.vercel/
