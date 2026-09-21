@@ -80,16 +80,41 @@ h1, h2, h3, h4, h5, h6 {
 
 .top-header-bar .dropdown-menu {
   z-index: 1070 !important;
+  background-color: #ffffff !important;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  padding: 6px 0;
+  min-width: 140px;
 }
 
-.top-header-bar a {
+.top-header-bar .dropdown-item {
+  color: #1f2937 !important; /* Dark charcoal, fully visible on white */
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  transition: all 0.15s ease;
+}
+
+.top-header-bar .dropdown-item:hover {
+  background-color: #fdf2f8 !important;
+  color: var(--brand-primary) !important;
+}
+
+.top-header-bar .dropdown-item.active,
+.top-header-bar .dropdown-item:active {
+  background-color: var(--brand-primary) !important; /* Brand purple */
+  color: #fbbf24 !important; /* Regal gold */
+  font-weight: 700;
+}
+
+.top-header-bar a:not(.dropdown-item) {
   color: #ffffff;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.top-header-bar a:hover {
+.top-header-bar a:not(.dropdown-item):hover {
   color: var(--brand-gold-light);
 }
 
