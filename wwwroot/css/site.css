@@ -206,21 +206,30 @@ html[lang="hi"] #site-navbar .nav-link,
   }
 
   #site-navbar .dropdown-menu {
-    background-color: rgba(255, 255, 255, 0.07);
-    border: none;
-    box-shadow: none;
-    padding-left: 1rem;
-    margin: 0.25rem 0;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    padding: 0.4rem 0.6rem !important;
+    margin: 0.35rem 0 0.6rem 0.5rem !important;
   }
 
   #site-navbar .dropdown-item {
-    color: #e5e7eb !important;
-    padding: 0.5rem 0.75rem;
+    color: #f3f4f6 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 0.55rem 0.85rem !important;
+    border-radius: 6px !important;
+    display: block !important;
+    white-space: normal !important;
   }
 
-  #site-navbar .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    color: var(--brand-gold-light) !important;
+  #site-navbar .dropdown-item:hover,
+  #site-navbar .dropdown-item:active,
+  #site-navbar .dropdown-item:focus {
+    background-color: rgba(251, 191, 36, 0.18) !important;
+    color: #fbbf24 !important;
+    font-weight: 600 !important;
   }
 }
 
@@ -242,24 +251,27 @@ html[lang="hi"] #site-navbar .nav-link,
   vertical-align: middle;
 }
 
-#site-navbar .dropdown-menu {
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  margin-top: 0;
-}
+/* Desktop Dropdown Menu (>= 1200px) */
+@media (min-width: 1200px) {
+  #site-navbar .dropdown-menu {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-top: 0;
+  }
 
-#site-navbar .dropdown-item {
-  font-size: 14px;
-  padding: 8px 18px;
-  color: #374151;
-}
+  #site-navbar .dropdown-item {
+    font-size: 14px;
+    padding: 8px 18px;
+    color: #374151;
+  }
 
-#site-navbar .dropdown-item:hover {
-  background-color: #f0f7ff;
-  color: var(--brand-primary);
-  font-weight: 600;
+  #site-navbar .dropdown-item:hover {
+    background-color: #f0f7ff;
+    color: var(--brand-primary);
+    font-weight: 600;
+  }
 }
 
 /* --------------------------------------------------------------------------
