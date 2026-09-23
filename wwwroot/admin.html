@@ -220,6 +220,45 @@
       right: 20px;
       z-index: 9999;
     }
+
+    .text-purple {
+      color: #6b21a8 !important;
+    }
+
+    .format-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .format-badge-pdf {
+      background-color: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    .format-badge-docx {
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .format-badge-zip {
+      background-color: #fefce8;
+      color: #a16207;
+      border: 1px solid #fde047;
+    }
+
+    .format-badge-other {
+      background-color: #f3e8ff;
+      color: #6b21a8;
+      border: 1px solid #d8b4fe;
+    }
   </style>
 </head>
 <body>
@@ -926,6 +965,15 @@
       saveDataAndRefresh('Announcement removed.');
     }
 
+    function getFormatBadge(type) {
+      const t = (type || 'PDF').toUpperCase();
+      let cls = 'format-badge-pdf';
+      if (t === 'DOCX' || t === 'DOC') cls = 'format-badge-docx';
+      else if (t === 'ZIP' || t === 'RAR') cls = 'format-badge-zip';
+      else if (t !== 'PDF') cls = 'format-badge-other';
+      return `<span class="format-badge ${cls}">${t}</span>`;
+    }
+
     function renderFormsTable() {
       const tbody = document.getElementById('formsTableBody');
       const badge = document.getElementById('formsCountBadge');
@@ -953,7 +1001,7 @@
               <div class="text-muted small">${item.titleHi || '-'}</div>
             </td>
             <td>
-              <span class="badge bg-purple-subtle text-purple border">${item.type || 'PDF'}</span>
+              ${getFormatBadge(item.type)}
               <span class="small text-muted d-block mt-0.5">${item.size || '500 KB'}</span>
             </td>
             <td><code class="small text-primary">${item.fileUrl || '#'}</code></td>
