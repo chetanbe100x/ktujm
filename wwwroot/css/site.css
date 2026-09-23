@@ -118,8 +118,17 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--brand-gold-light);
 }
 
+.university-logo-crest img,
 .university-logo-crest svg {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+  transition: transform 0.25s ease;
+  border-radius: 50%;
+  display: block;
+}
+
+.university-logo-crest:hover img,
+.university-logo-crest:hover svg {
+  transform: scale(1.05);
 }
 
 #site-navbar {
