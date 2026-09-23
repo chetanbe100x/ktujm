@@ -30,3 +30,8 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .vercel/
+
+## Local Dev & Scratch Tools
+*.py
+scratch/
+serve.json
