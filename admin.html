@@ -259,6 +259,53 @@
       color: #6b21a8;
       border: 1px solid #d8b4fe;
     }
+
+    /* Mobile Offcanvas & Mobile Nav */
+    .mobile-tab-btn {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #475569;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .mobile-tab-btn.active {
+      background: linear-gradient(135deg, #3f1040, #5c275c);
+      color: #ffffff;
+      border-color: #3f1040;
+      box-shadow: 0 2px 8px rgba(63, 16, 64, 0.25);
+    }
+    .mobile-tab-scroll {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .mobile-tab-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .offcanvas-body .nav-link {
+      color: #334155;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+    .offcanvas-body .nav-link:hover, .offcanvas-body .nav-link.active {
+      background: #fdf4ff;
+      color: var(--brand-primary);
+    }
+    .offcanvas-body .nav-link.active {
+      background: linear-gradient(135deg, #3f1040, #5c275c);
+      color: #ffffff !important;
+    }
   </style>
 </head>
 <body>
@@ -311,36 +358,114 @@
 
   <!-- DASHBOARD VIEW -->
   <div id="dashboardView" style="display: none;">
-    <!-- Top Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark admin-navbar py-2 px-3 px-lg-4">
-      <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-          <img src="images/logo.png" alt="Logo" width="42" height="42" class="rounded-circle bg-white p-0.5" />
+        <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand navbar-dark admin-navbar py-2 px-3 px-lg-4 sticky-top">
+      <div class="container-fluid px-0">
+        <!-- Left Mobile Drawer Toggle Button -->
+        <button class="btn btn-outline-light btn-sm d-md-none me-2 px-2.5 py-1.5" type="button" data-bs-toggle="offcanvas" data-bs-target="#adminMobileSidebar" aria-controls="adminMobileSidebar" aria-label="Open Left Menu">
+          <i class="bi bi-list fs-5"></i>
+        </button>
+
+        <a class="navbar-brand d-flex align-items-center gap-2 me-auto" href="#">
+          <img src="images/logo.png" alt="Logo" width="38" height="38" class="rounded-circle bg-white p-0.5" />
           <div>
-            <div class="fw-bold fs-6 lh-sm">KTUJM Raipur</div>
-            <div class="text-warning small" style="font-size: 11px;">Portal Content Administration</div>
+            <div class="fw-bold fs-6 lh-sm">KTUJM Admin</div>
+            <div class="text-warning small d-none d-sm-block" style="font-size: 11px;">Portal Content Administration</div>
           </div>
         </a>
-        <div class="d-flex align-items-center gap-2 ms-auto">
+
+        <!-- Desktop Action Buttons -->
+        <div class="d-none d-md-flex align-items-center gap-2">
           <a href="index.html" target="_blank" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1.5 px-3">
-            <i class="bi bi-box-arrow-up-right text-warning"></i> <span class="d-none d-sm-inline">View Live Site</span>
+            <i class="bi bi-box-arrow-up-right text-warning"></i> <span>View Live Site</span>
           </a>
           <button class="btn btn-sm btn-outline-warning d-flex align-items-center gap-1.5 px-3" onclick="exportDataJson()">
-            <i class="bi bi-download"></i> <span class="d-none d-sm-inline">Export JSON</span>
+            <i class="bi bi-download"></i> <span>Export JSON</span>
           </button>
-          <div class="vr bg-white opacity-25 mx-2"></div>
+          <div class="vr bg-white opacity-25 mx-1"></div>
           <button class="btn btn-sm btn-danger d-flex align-items-center gap-1" onclick="handleLogout()">
-            <i class="bi bi-power"></i> <span class="d-none d-sm-inline">Sign Out</span>
+            <i class="bi bi-power"></i> <span>Sign Out</span>
+          </button>
+        </div>
+
+        <!-- Mobile Sign Out & Quick Links -->
+        <div class="d-flex d-md-none align-items-center gap-1.5">
+          <a href="index.html" target="_blank" class="btn btn-sm btn-outline-light py-1 px-2" title="View Live Site">
+            <i class="bi bi-box-arrow-up-right text-warning"></i>
+          </a>
+          <button class="btn btn-sm btn-danger py-1 px-2" title="Sign Out" onclick="handleLogout()">
+            <i class="bi bi-power"></i>
           </button>
         </div>
       </div>
     </nav>
 
+    <!-- Mobile Quick-Access Horizontal Tab Pills (Sticky on Mobile) -->
+    <div class="d-md-none bg-white border-bottom py-2 px-2 mobile-tab-scroll d-flex gap-2 sticky-top shadow-sm" style="top: 56px; z-index: 1020;">
+      <button class="mobile-tab-btn active" data-tab-target="tabTicker" onclick="switchTab('tabTicker')">
+        <i class="bi bi-bell-fill text-warning"></i> Latest Updates
+      </button>
+      <button class="mobile-tab-btn" data-tab-target="tabForms" onclick="switchTab('tabForms')">
+        <i class="bi bi-folder-fill text-primary"></i> Quick Forms
+      </button>
+      <button class="mobile-tab-btn" data-tab-target="tabKulgeet" onclick="switchTab('tabKulgeet')">
+        <i class="bi bi-music-note-beamed text-success"></i> Kulgeet
+      </button>
+      <button class="mobile-tab-btn" data-tab-target="tabSettings" onclick="switchTab('tabSettings')">
+        <i class="bi bi-gear-fill text-secondary"></i> Settings
+      </button>
+    </div>
+
+    <!-- Offcanvas Mobile Drawer (Opens from left when clicking left-hand button) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="adminMobileSidebar" aria-labelledby="adminMobileSidebarLabel">
+      <div class="offcanvas-header bg-dark text-white border-bottom border-warning">
+        <div class="d-flex align-items-center gap-2">
+          <img src="images/logo.png" alt="Logo" width="36" height="36" class="rounded-circle bg-white p-0.5" />
+          <div>
+            <h6 class="offcanvas-title fw-bold mb-0 text-white" id="adminMobileSidebarLabel">KTUJM Admin</h6>
+            <span class="text-warning small" style="font-size: 11px;">Navigation Menu</span>
+          </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-3 d-flex flex-column justify-content-between">
+        <div>
+          <div class="mb-2 px-2 text-uppercase text-muted fw-bold small" style="font-size: 11px; letter-spacing: 0.5px;">Control Modules</div>
+          <nav class="nav flex-column mb-4">
+            <button class="nav-link mobile-drawer-link active text-start border-0 bg-transparent mb-1" data-tab-target="tabTicker" onclick="switchTabMobile('tabTicker')">
+              <i class="bi bi-bell-fill text-warning me-2"></i> Latest Updates Ticker
+            </button>
+            <button class="nav-link mobile-drawer-link text-start border-0 bg-transparent mb-1" data-tab-target="tabForms" onclick="switchTabMobile('tabForms')">
+              <i class="bi bi-folder-fill text-primary me-2"></i> Quick Forms & Downloads
+            </button>
+            <button class="nav-link mobile-drawer-link text-start border-0 bg-transparent mb-1" data-tab-target="tabKulgeet" onclick="switchTabMobile('tabKulgeet')">
+              <i class="bi bi-music-note-beamed text-success me-2"></i> University Kulgeet
+            </button>
+            <button class="nav-link mobile-drawer-link text-start border-0 bg-transparent mb-1" data-tab-target="tabSettings" onclick="switchTabMobile('tabSettings')">
+              <i class="bi bi-gear-fill text-secondary me-2"></i> Settings & Security
+            </button>
+          </nav>
+        </div>
+
+        <div class="border-top pt-3">
+          <a href="index.html" target="_blank" class="btn btn-outline-dark w-100 mb-2 d-flex align-items-center justify-content-center gap-2 py-2">
+            <i class="bi bi-box-arrow-up-right text-warning"></i> View Live Site
+          </a>
+          <button class="btn btn-outline-warning w-100 text-dark mb-2 d-flex align-items-center justify-content-center gap-2 py-2" onclick="exportDataJson()">
+            <i class="bi bi-download"></i> Export JSON Backup
+          </button>
+          <button class="btn btn-danger w-100 d-flex align-items-center justify-content-center gap-2 py-2" onclick="handleLogout()">
+            <i class="bi bi-power"></i> Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Main Container -->
     <div class="container-fluid">
       <div class="row">
-        <!-- Sidebar Navigation -->
-        <aside class="col-md-3 col-lg-2 p-3 sidebar">
+        <!-- Desktop Sidebar Navigation (Hidden on mobile) -->
+        <aside class="col-md-3 col-lg-2 p-3 sidebar d-none d-md-block">
           <div class="mb-3 px-2 text-uppercase text-muted fw-bold small" style="font-size: 11px; letter-spacing: 0.5px;">Navigation</div>
           <nav class="nav flex-column">
             <button class="nav-link active text-start border-0 bg-transparent" onclick="switchTab('tabTicker', this)">
@@ -802,18 +927,49 @@
     // -------------------------------------------------------------
     // Navigation / Tabs
     // -------------------------------------------------------------
-    function switchTab(tabId, btn) {
+        function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-pane-custom').forEach(tab => tab.style.display = 'none');
-      document.querySelectorAll('.sidebar .nav-link').forEach(link => link.classList.remove('active'));
       
+      // Update desktop sidebar links
+      document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(tabId)) {
+          link.classList.add('active');
+        }
+      });
+
+      // Update mobile horizontal tabs
+      document.querySelectorAll('.mobile-tab-btn').forEach(b => {
+        b.classList.remove('active');
+        if (b.getAttribute('data-tab-target') === tabId) {
+          b.classList.add('active');
+        }
+      });
+
+      // Update mobile drawer links
+      document.querySelectorAll('.mobile-drawer-link').forEach(b => {
+        b.classList.remove('active');
+        if (b.getAttribute('data-tab-target') === tabId) {
+          b.classList.add('active');
+        }
+      });
+
       const target = document.getElementById(tabId);
-      if (target) target.style.display = 'block';
-      if (btn) btn.classList.add('active');
+      if (target) {
+        target.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
 
-    // -------------------------------------------------------------
-    // Data Management
-    // -------------------------------------------------------------
+    function switchTabMobile(tabId) {
+      switchTab(tabId);
+      const offcanvasEl = document.getElementById('adminMobileSidebar');
+      if (offcanvasEl && window.bootstrap) {
+        const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl) || new bootstrap.Offcanvas(offcanvasEl);
+        if (offcanvas) offcanvas.hide();
+      }
+    }
+
     let currentData = null;
 
     function loadAllData() {
