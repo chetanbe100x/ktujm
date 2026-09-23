@@ -1,0 +1,99 @@
+{
+  "tickerUpdates": [
+    {
+      "id": 1,
+      "titleHi": "प्रवेश सत्र 2026-27: स्नातक, स्नातकोत्तर एवं पी.जी. डिप्लोमा पाठ्यक्रमों में ऑनलाइन आवेदन आमंत्रित",
+      "titleEn": "Admission Session 2026-27: Online Applications Invited for UG, PG & PG Diploma Programs",
+      "isNew": true,
+      "link": "#admissions",
+      "active": true,
+      "order": 1
+    },
+    {
+      "id": 2,
+      "titleHi": "सत्र 2025-26 सम-सैमेस्टर सत्रांत परीक्षा (जून 2026) की समय सारिणी (Time Table) जारी",
+      "titleEn": "Session 2025-26 Even-Semester End-Term Examination (June 2026) Time Table Released",
+      "isNew": true,
+      "link": "#quick-access",
+      "active": true,
+      "order": 2
+    },
+    {
+      "id": 3,
+      "titleHi": "राष्ट्रीय मीडिया कॉन्क्लेव 2026: 'भारतीय पत्रकारिता एवं कृत्रिम बुद्धिमत्ता (AI)' विषय पर दो दिवसीय सेमिनार",
+      "titleEn": "National Media Conclave 2026: Two-Day National Seminar on 'Indian Journalism & AI'",
+      "isNew": false,
+      "link": "#events",
+      "active": true,
+      "order": 3
+    },
+    {
+      "id": 4,
+      "titleHi": "सप्तम दीक्षांत समारोह (7th Convocation) हेतु उपाधि प्राप्तकर्ताओं के पंजीकरण की अंतिम तिथि विस्तारित",
+      "titleEn": "Last Date Extended for Degree Recipients Registration for 7th Convocation",
+      "isNew": true,
+      "link": "#notices",
+      "active": true,
+      "order": 4
+    }
+  ],
+  "quickForms": [
+    {
+      "id": 1,
+      "titleEn": "UG/PG Admission Application Form 2026-27",
+      "titleHi": "प्रवेश आवेदन प्रपत्र 2026-27",
+      "size": "650 KB",
+      "type": "PDF",
+      "fileUrl": "assets/docs/admission-application-form-2026.pdf",
+      "active": true,
+      "order": 1
+    },
+    {
+      "id": 2,
+      "titleEn": "Degree & Migration Certificate Application",
+      "titleHi": "उपाधि एवं प्रव्रजन प्रमाण-पत्र प्रपत्र",
+      "size": "420 KB",
+      "type": "PDF",
+      "fileUrl": "assets/docs/degree-migration-form.pdf",
+      "active": true,
+      "order": 2
+    },
+    {
+      "id": 3,
+      "titleEn": "End-Semester Examination Form (Regular & ATKT)",
+      "titleHi": "सत्रांत परीक्षा आवेदन प्रपत्र (नियमित एवं एटीकेटी)",
+      "size": "580 KB",
+      "type": "PDF",
+      "fileUrl": "assets/docs/exam-form.pdf",
+      "active": true,
+      "order": 3
+    },
+    {
+      "id": 4,
+      "titleEn": "Ph.D. Entrance Examination (KTU-PET) Guidelines",
+      "titleHi": "पीएच.डी. प्रवेश परीक्षा (KTU-PET) मार्गदर्शिका",
+      "size": "1.2 MB",
+      "type": "PDF",
+      "fileUrl": "assets/docs/pet-guidelines.pdf",
+      "active": true,
+      "order": 4
+    },
+    {
+      "id": 5,
+      "titleEn": "University Ordinance & Academic Regulations",
+      "titleHi": "विश्वविद्यालय अध्यादेश एवं शैक्षणिक विनियम",
+      "size": "3.4 MB",
+      "type": "PDF",
+      "fileUrl": "assets/docs/ordinance-regulations.pdf",
+      "active": true,
+      "order": 5
+    }
+  ],
+  "kulgeet": {
+    "titleEn": "University Kulgeet",
+    "titleHi": "विश्वविद्यालय कुलगीत",
+    "descEn": "Download the official KTUJM anthem & lyrics",
+    "descHi": "विश्वविद्यालय का आधिकारिक कुलगीत (PDF/Audio)",
+    "fileUrl": "assets/docs/kulgeet.pdf"
+  }
+}

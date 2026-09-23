@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KTUJM Raipur - Admin Management Panel</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --brand-primary: #3f1040;
+      --brand-secondary: #5c275c;
+      --brand-accent: #f59e0b;
+      --brand-dark: #0f172a;
+      --brand-gold: #fbbf24;
+      --bg-slate: #f8fafc;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+      background-color: var(--bg-slate);
+      color: #1e293b;
+      min-height: 100vh;
+    }
+
+    .font-serif-title {
+      font-family: 'Outfit', serif;
+    }
+
+    /* Top Admin Header */
+    .admin-navbar {
+      background: linear-gradient(135deg, #2d0b2e 0%, #3f1040 50%, #1e1022 100%);
+      border-bottom: 2px solid var(--brand-accent);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar {
+      background: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      min-height: calc(100vh - 72px);
+    }
+
+    .sidebar .nav-link {
+      color: #475569;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sidebar .nav-link:hover {
+      background: #fdf4ff;
+      color: var(--brand-primary);
+    }
+
+    .sidebar .nav-link.active {
+      background: linear-gradient(135deg, #3f1040, #5c275c);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(63, 16, 64, 0.25);
+    }
+
+    .card-custom {
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      background: #ffffff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-brand {
+      background: linear-gradient(135deg, #3f1040, #5c275c);
+      color: #ffffff;
+      border: none;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 9px 20px;
+      transition: all 0.2s;
+    }
+
+    .btn-brand:hover {
+      background: linear-gradient(135deg, #5c275c, #3f1040);
+      color: #fbbf24;
+      box-shadow: 0 4px 12px rgba(63, 16, 64, 0.3);
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0f172a;
+      border: none;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 9px 20px;
+    }
+
+    .btn-accent:hover {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    }
+
+    /* Live Preview Ticker Bar */
+    .preview-ticker-container {
+      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+      border-radius: 12px;
+      padding: 8px 16px;
+      border: 1px solid #d97706;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .preview-ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      animation: tickerScroll 24s linear infinite;
+    }
+
+    .preview-ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .new-badge {
+      font-size: 10px;
+      background-color: #dc2626;
+      color: #ffffff;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: pulseBadge 1.5s infinite;
+    }
+
+    @keyframes pulseBadge {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(0.96); }
+    }
+
+    /* Quick Forms Preview Card matching Screenshot 2 */
+    .preview-forms-card {
+      max-width: 380px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+    }
+
+    .preview-form-item {
+      padding: 12px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+
+    .preview-form-item:hover {
+      background: #fefce8;
+      border-color: #fde047;
+      transform: translateY(-1px);
+    }
+
+    .preview-kulgeet-box {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #3f1040, #5c275c);
+      color: #ffffff;
+    }
+
+    /* Login Screen */
+    .login-container {
+      max-width: 440px;
+      margin: 80px auto;
+    }
+
+    .login-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+
+    .login-header {
+      background: linear-gradient(135deg, #2d0b2e 0%, #3f1040 100%);
+      padding: 32px 24px;
+      color: white;
+      text-align: center;
+    }
+
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- AUTHENTICATION VIEW -->
+  <div id="authView" class="container">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <img src="images/logo.png" alt="KTUJM Logo" width="70" height="70" class="rounded-circle bg-white p-1 mb-3 shadow" />
+          <h4 class="font-serif-title fw-bold mb-1">KTUJM Admin Portal</h4>
+          <p class="text-white-50 small mb-0">Dynamic Content Management System</p>
+        </div>
+        <div class="p-4 p-sm-5">
+          <div class="alert alert-info py-2 px-3 small border-0 bg-purple-50 text-dark mb-4">
+            <i class="bi bi-info-circle-fill text-primary me-1"></i> Default ID: <strong>admin</strong> | Password: <strong>admin123</strong>
+          </div>
+          <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-secondary">Admin ID / Username</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-person-fill text-secondary"></i></span>
+                <input type="text" id="loginAdminId" class="form-control border-start-0" placeholder="Enter admin ID" required autofocus value="admin" />
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-secondary">Password</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock-fill text-secondary"></i></span>
+                <input type="password" id="loginPassword" class="form-control border-start-0" placeholder="Enter password" required value="admin123" />
+                <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility('loginPassword', this)"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-brand w-100 py-2 fs-6 shadow-sm">
+              <i class="bi bi-box-arrow-in-right me-1"></i> Sign In to Dashboard
+            </button>
+          </form>
+          <div class="text-center mt-4">
+            <a href="index.html" class="text-decoration-none small text-secondary">
+              <i class="bi bi-arrow-left me-1"></i> Back to University Website
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD VIEW -->
+  <div id="dashboardView" style="display: none;">
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark admin-navbar py-2 px-3 px-lg-4">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <img src="images/logo.png" alt="Logo" width="42" height="42" class="rounded-circle bg-white p-0.5" />
+          <div>
+            <div class="fw-bold fs-6 lh-sm">KTUJM Raipur</div>
+            <div class="text-warning small" style="font-size: 11px;">Portal Content Administration</div>
+          </div>
+        </a>
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <a href="index.html" target="_blank" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1.5 px-3">
+            <i class="bi bi-box-arrow-up-right text-warning"></i> <span class="d-none d-sm-inline">View Live Site</span>
+          </a>
+          <button class="btn btn-sm btn-outline-warning d-flex align-items-center gap-1.5 px-3" onclick="exportDataJson()">
+            <i class="bi bi-download"></i> <span class="d-none d-sm-inline">Export JSON</span>
+          </button>
+          <div class="vr bg-white opacity-25 mx-2"></div>
+          <button class="btn btn-sm btn-danger d-flex align-items-center gap-1" onclick="handleLogout()">
+            <i class="bi bi-power"></i> <span class="d-none d-sm-inline">Sign Out</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar Navigation -->
+        <aside class="col-md-3 col-lg-2 p-3 sidebar">
+          <div class="mb-3 px-2 text-uppercase text-muted fw-bold small" style="font-size: 11px; letter-spacing: 0.5px;">Navigation</div>
+          <nav class="nav flex-column">
+            <button class="nav-link active text-start border-0 bg-transparent" onclick="switchTab('tabTicker', this)">
+              <i class="bi bi-bell-fill text-warning"></i> Latest Updates Ticker
+            </button>
+            <button class="nav-link text-start border-0 bg-transparent" onclick="switchTab('tabForms', this)">
+              <i class="bi bi-folder-fill text-primary"></i> Quick Forms & Downloads
+            </button>
+            <button class="nav-link text-start border-0 bg-transparent" onclick="switchTab('tabKulgeet', this)">
+              <i class="bi bi-music-note-beamed text-success"></i> University Kulgeet
+            </button>
+            <button class="nav-link text-start border-0 bg-transparent" onclick="switchTab('tabSettings', this)">
+              <i class="bi bi-gear-fill text-secondary"></i> Settings & Security
+            </button>
+          </nav>
+
+          <hr class="my-4 text-muted opacity-25" />
+          
+          <div class="p-3 bg-light rounded-3 text-center border">
+            <div class="small fw-bold text-dark mb-1">Status: Active</div>
+            <div class="text-muted" style="font-size: 11px;">Real-time Dynamic Sync Enabled</div>
+            <button class="btn btn-sm btn-outline-secondary w-100 mt-2 py-1" onclick="syncAllToPublicSite()">
+              <i class="bi bi-arrow-repeat me-1"></i> Force Sync
+            </button>
+          </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="col-md-9 col-lg-10 p-3 p-lg-4">
+
+          <!-- TAB 1: LATEST UPDATES (TICKER) -->
+          <div id="tabTicker" class="tab-pane-custom">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+              <div>
+                <h4 class="fw-bold font-serif-title mb-1 text-dark">Latest Updates (Marquee Announcements Bar)</h4>
+                <p class="text-muted small mb-0">Manage the scrolling announcement ticker displayed on the top of the university portal (as shown in Screenshot 1).</p>
+              </div>
+              <button class="btn btn-brand d-flex align-items-center gap-2" onclick="openAddTickerModal()">
+                <i class="bi bi-plus-circle-fill"></i> Add New Announcement
+              </button>
+            </div>
+
+            <!-- Live Marquee Preview Card -->
+            <div class="card-custom p-4 mb-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="small fw-bold text-uppercase text-secondary" style="letter-spacing: 0.5px;">
+                  <i class="bi bi-eye-fill text-warning me-1"></i> Live Real-Time Marquee Preview
+                </span>
+                <span class="badge bg-success-subtle text-success border border-success-subtle">Preview Live</span>
+              </div>
+              <div class="preview-ticker-container d-flex align-items-center gap-3">
+                <div class="badge bg-dark text-warning px-2.5 py-1.5 fw-bold text-uppercase d-flex align-items-center gap-1 shrink-0 shadow-sm" style="font-size: 11px;">
+                  <span class="spinner-grow spinner-grow-sm text-danger" style="width: 8px; height: 8px;"></span>
+                  <i class="bi bi-bell-fill"></i> ताज़ा सूचना / LATEST UPDATES
+                </div>
+                <div class="overflow-hidden w-100">
+                  <div class="preview-ticker-track" id="previewTickerTrack"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ticker Table -->
+            <div class="card-custom p-0 overflow-hidden">
+              <div class="p-3 bg-light border-bottom d-flex align-items-center justify-content-between">
+                <span class="fw-bold small text-secondary">All Configured Announcements</span>
+                <span class="badge bg-primary" id="tickerCountBadge">0 Items</span>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="table-light small text-uppercase text-secondary">
+                    <tr>
+                      <th style="width: 50px;">Order</th>
+                      <th style="width: 70px;">Status</th>
+                      <th style="width: 70px;">Badge</th>
+                      <th>Hindi Title (प्राथमिक शीर्षक)</th>
+                      <th>English Title (अंग्रेजी शीर्षक)</th>
+                      <th>Target Link</th>
+                      <th style="width: 160px;" class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tickerTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: QUICK FORMS & DOWNLOADS -->
+          <div id="tabForms" class="tab-pane-custom" style="display: none;">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+              <div>
+                <h4 class="fw-bold font-serif-title mb-1 text-dark">Quick Forms & Downloads Widget</h4>
+                <p class="text-muted small mb-0">Manage downloadable application forms, guidelines, and PDF files (as shown in Screenshot 2).</p>
+              </div>
+              <button class="btn btn-brand d-flex align-items-center gap-2" onclick="openAddFormModal()">
+                <i class="bi bi-plus-circle-fill"></i> Add New Download Form
+              </button>
+            </div>
+
+            <div class="row g-4 mb-4">
+              <div class="col-lg-4">
+                <div class="card-custom p-3">
+                  <div class="small fw-bold text-uppercase text-secondary mb-3">
+                    <i class="bi bi-eye-fill text-primary me-1"></i> Live Card Preview
+                  </div>
+                  <div class="preview-forms-card">
+                    <div class="d-flex align-items-center gap-2 pb-3 mb-3 border-bottom">
+                      <i class="bi bi-folder-fill fs-5 text-warning"></i>
+                      <h5 class="fw-bold font-serif-title mb-0 text-dark" style="font-size: 17px;">Quick Forms & Downloads</h5>
+                    </div>
+                    <div id="previewFormsList"></div>
+                    <div class="preview-kulgeet-box" id="previewKulgeetCardBox">
+                      <div class="d-flex align-items-center gap-2 fw-bold text-warning mb-1" style="font-size: 13px;">
+                        <i class="bi bi-file-earmark-music-fill"></i>
+                        <span id="previewKulgeetTitle">University Kulgeet</span>
+                      </div>
+                      <div class="text-white-50 small" id="previewKulgeetDesc" style="font-size: 11px;">Download the official KTUJM anthem & lyrics</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-8">
+                <div class="card-custom p-0 overflow-hidden">
+                  <div class="p-3 bg-light border-bottom d-flex align-items-center justify-content-between">
+                    <span class="fw-bold small text-secondary">Configured Downloadable Forms</span>
+                    <span class="badge bg-primary" id="formsCountBadge">0 Forms</span>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                      <thead class="table-light small text-uppercase text-secondary">
+                        <tr>
+                          <th style="width: 50px;">Order</th>
+                          <th style="width: 70px;">Status</th>
+                          <th>Title (English / Hindi)</th>
+                          <th style="width: 100px;">Format / Size</th>
+                          <th>File / URL Link</th>
+                          <th style="width: 160px;" class="text-end">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="formsTableBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: KULGEET -->
+          <div id="tabKulgeet" class="tab-pane-custom" style="display: none;">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+              <div>
+                <h4 class="fw-bold font-serif-title mb-1 text-dark">University Kulgeet (Anthem & Lyrics)</h4>
+                <p class="text-muted small mb-0">Customize the official Kulgeet banner at the bottom of the Quick Forms card.</p>
+              </div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-lg-7">
+                <div class="card-custom p-4">
+                  <form id="kulgeetForm" onsubmit="handleSaveKulgeet(event)">
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold text-secondary">Title (English)</label>
+                      <input type="text" id="kgTitleEn" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold text-secondary">Title (Hindi)</label>
+                      <input type="text" id="kgTitleHi" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold text-secondary">Description (English)</label>
+                      <input type="text" id="kgDescEn" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold text-secondary">Description (Hindi)</label>
+                      <input type="text" id="kgDescHi" class="form-control" required />
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label small fw-bold text-secondary">Download / Audio / PDF URL</label>
+                      <input type="text" id="kgFileUrl" class="form-control" placeholder="assets/docs/kulgeet.pdf or audio link" />
+                    </div>
+                    <button type="submit" class="btn btn-brand">
+                      <i class="bi bi-check-circle-fill me-1"></i> Save Kulgeet Settings
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="card-custom p-4">
+                  <div class="small fw-bold text-uppercase text-secondary mb-3">Live Banner Preview</div>
+                  <div class="preview-kulgeet-box">
+                    <div class="d-flex align-items-center gap-2 fw-bold text-warning mb-1 fs-6">
+                      <i class="bi bi-file-earmark-music-fill"></i>
+                      <span id="previewKgCardTitle">University Kulgeet</span>
+                    </div>
+                    <p class="text-white-50 small mb-0" id="previewKgCardDesc">Download the official KTUJM anthem & lyrics</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: SETTINGS -->
+          <div id="tabSettings" class="tab-pane-custom" style="display: none;">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+              <div>
+                <h4 class="fw-bold font-serif-title mb-1 text-dark">Settings, Security & Backup</h4>
+                <p class="text-muted small mb-0">Manage Admin login credentials, export/import JSON configurations, and restore defaults.</p>
+              </div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-lg-6">
+                <div class="card-custom p-4 h-100">
+                  <h5 class="fw-bold font-serif-title text-dark mb-3"><i class="bi bi-shield-lock-fill text-brand me-1"></i> Admin Authentication Credentials</h5>
+                  <form id="changeCredentialsForm" onsubmit="handleChangeCredentials(event)">
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold text-secondary">Admin ID / Username</label>
+                      <input type="text" id="settingAdminId" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold text-secondary">New Password</label>
+                      <input type="password" id="settingNewPassword" class="form-control" placeholder="Leave blank to keep unchanged" />
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label small fw-bold text-secondary">Confirm New Password</label>
+                      <input type="password" id="settingConfirmPassword" class="form-control" placeholder="Confirm new password" />
+                    </div>
+                    <button type="submit" class="btn btn-brand">
+                      <i class="bi bi-key-fill me-1"></i> Update Credentials
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="card-custom p-4 h-100">
+                  <h5 class="fw-bold font-serif-title text-dark mb-3"><i class="bi bi-database-fill-gear text-brand me-1"></i> Data Backup & Restore</h5>
+                  <p class="text-muted small">Download or upload your dynamic portal data configuration file (<code>ktujm-data.json</code>).</p>
+                  
+                  <div class="d-grid gap-2 mb-4">
+                    <button class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2 py-2" onclick="exportDataJson()">
+                      <i class="bi bi-download"></i> Export Data Backup (JSON File)
+                    </button>
+                    <div>
+                      <input type="file" id="importJsonFileInput" class="d-none" accept=".json" onchange="handleImportJsonFile(event)" />
+                      <button class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2 py-2" onclick="document.getElementById('importJsonFileInput').click()">
+                        <i class="bi bi-upload"></i> Import Data Configuration (JSON File)
+                      </button>
+                    </div>
+                  </div>
+
+                  <hr class="text-muted opacity-25" />
+
+                  <h6 class="fw-bold text-danger mb-2"><i class="bi bi-exclamation-triangle-fill me-1"></i> Reset to Factory Content</h6>
+                  <p class="text-muted small mb-3">Reverts all Announcements, Downloadable Forms, and Kulgeet to the original university defaults.</p>
+                  <button class="btn btn-outline-danger" onclick="confirmResetDefaults()">
+                    <i class="bi bi-arrow-counterclockwise me-1"></i> Reset to Factory Defaults
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT TICKER ITEM -->
+  <div class="modal fade" id="tickerModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header bg-dark text-white rounded-top-4">
+          <h5 class="modal-title font-serif-title" id="tickerModalTitle">Add Announcement</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="tickerForm" onsubmit="handleSaveTicker(event)">
+            <input type="hidden" id="tickerEditId" value="" />
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-secondary">Hindi Title (हिंदी में सूचना)</label>
+              <textarea id="tickerTitleHi" class="form-control" rows="2" required placeholder="e.g. सत्र 2026-27 प्रवेश परीक्षा समय सारिणी जारी"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-secondary">English Title (Optional / वैकल्पिक)</label>
+              <textarea id="tickerTitleEn" class="form-control" rows="2" placeholder="e.g. Session 2026-27 Entrance Exam Schedule Released"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-secondary">Target Link / URL</label>
+              <input type="text" id="tickerLink" class="form-control" placeholder="#admissions or /assets/docs/notice.pdf" value="#" />
+            </div>
+            <div class="row g-3 mb-4">
+              <div class="col-6">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="tickerIsNew" checked />
+                  <label class="form-check-label small fw-semibold" for="tickerIsNew">Show "NEW" Badge</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="tickerActive" checked />
+                  <label class="form-check-label small fw-semibold" for="tickerActive">Active Status</label>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-brand">Save Announcement</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT FORM ITEM -->
+  <div class="modal fade" id="formModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header bg-dark text-white rounded-top-4">
+          <h5 class="modal-title font-serif-title" id="formModalTitle">Add Downloadable Form</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="formItemForm" onsubmit="handleSaveFormItem(event)">
+            <input type="hidden" id="formEditId" value="" />
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-secondary">Form Title in English</label>
+              <input type="text" id="formTitleEn" class="form-control" required placeholder="e.g. UG/PG Admission Application Form 2026-27" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-secondary">Form Title in Hindi (हिंदी शीर्षक)</label>
+              <input type="text" id="formTitleHi" class="form-control" required placeholder="e.g. प्रवेश आवेदन प्रपत्र 2026-27" />
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <label class="form-label small fw-bold text-secondary">File Format</label>
+                <select id="formType" class="form-select">
+                  <option value="PDF">PDF</option>
+                  <option value="DOCX">DOCX</option>
+                  <option value="ZIP">ZIP</option>
+                  <option value="XLSX">XLSX</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label small fw-bold text-secondary">File Size</label>
+                <input type="text" id="formSize" class="form-control" required placeholder="e.g. 650 KB, 1.2 MB" value="500 KB" />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-secondary">Download URL / Path</label>
+              <input type="text" id="formFileUrl" class="form-control" placeholder="assets/docs/admission-form.pdf or https://..." value="#" />
+            </div>
+            <div class="mb-4">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="formActive" checked />
+                <label class="form-check-label small fw-semibold" for="formActive">Active Status</label>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-brand">Save Form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/dynamic-content.js"></script>
+
+  <script>
+    const CREDENTIALS_KEY = 'ktujm_admin_credentials';
+    const SESSION_KEY = 'ktujm_admin_session';
+
+    function getStoredCredentials() {
+      try {
+        const creds = localStorage.getItem(CREDENTIALS_KEY);
+        if (creds) return JSON.parse(creds);
+      } catch (e) {}
+      return { adminId: 'admin', password: 'admin123' };
+    }
+
+    function checkAuthSession() {
+      const session = sessionStorage.getItem(SESSION_KEY);
+      if (session === 'authenticated') {
+        showDashboard();
+      } else {
+        showAuth();
+      }
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const idInput = document.getElementById('loginAdminId').value.trim();
+      const passInput = document.getElementById('loginPassword').value;
+      const creds = getStoredCredentials();
+
+      if (idInput === creds.adminId && passInput === creds.password) {
+        sessionStorage.setItem(SESSION_KEY, 'authenticated');
+        showToast('Login Successful! Welcome, Administrator.', 'success');
+        showDashboard();
+      } else {
+        showToast('Invalid Admin ID or Password. Please try again.', 'danger');
+      }
+    }
+
+    function handleLogout() {
+      sessionStorage.removeItem(SESSION_KEY);
+      showToast('You have been signed out.', 'info');
+      showAuth();
+    }
+
+    function showAuth() {
+      document.getElementById('authView').style.display = 'block';
+      document.getElementById('dashboardView').style.display = 'none';
+    }
+
+    function showDashboard() {
+      document.getElementById('authView').style.display = 'none';
+      document.getElementById('dashboardView').style.display = 'block';
+      loadAllData();
+    }
+
+    function togglePasswordVisibility(fieldId, btn) {
+      const input = document.getElementById(fieldId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.innerHTML = '<i class="bi bi-eye-slash"></i>';
+      } else {
+        input.type = 'password';
+        btn.innerHTML = '<i class="bi bi-eye"></i>';
+      }
+    }
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-pane-custom').forEach(tab => tab.style.display = 'none');
+      document.querySelectorAll('.sidebar .nav-link').forEach(link => link.classList.remove('active'));
+      
+      const target = document.getElementById(tabId);
+      if (target) target.style.display = 'block';
+      if (btn) btn.classList.add('active');
+    }
+
+    let currentData = null;
+
+    function loadAllData() {
+      currentData = window.ktujmGetData();
+      renderTickerTable();
+      renderPreviewTicker();
+      renderFormsTable();
+      renderPreviewForms();
+      populateKulgeetSettings();
+      populateCredentialsSettings();
+    }
+
+    function saveDataAndRefresh(msg) {
+      const success = window.ktujmSaveData(currentData);
+      if (success) {
+        loadAllData();
+        if (msg) showToast(msg, 'success');
+      } else {
+        showToast('Error saving data.', 'danger');
+      }
+    }
+
+    function renderTickerTable() {
+      const tbody = document.getElementById('tickerTableBody');
+      const badge = document.getElementById('tickerCountBadge');
+      const updates = currentData.tickerUpdates || [];
+      badge.textContent = updates.length + ' Items';
+
+      if (updates.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted py-4">No announcements added. Click "Add New Announcement" above.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = updates.map((item, index) => {
+        const isFirst = index === 0;
+        const isLast = index === updates.length - 1;
+        return `
+          <tr>
+            <td class="fw-bold text-muted">${index + 1}</td>
+            <td>
+              <span class="badge ${item.active !== false ? 'bg-success' : 'bg-secondary'}">
+                ${item.active !== false ? 'Active' : 'Hidden'}
+              </span>
+            </td>
+            <td>
+              ${item.isNew ? '<span class="new-badge">NEW</span>' : '<span class="text-muted small">-</span>'}
+            </td>
+            <td class="fw-semibold text-dark">${item.titleHi || '-'}</td>
+            <td class="text-muted small">${item.titleEn || '-'}</td>
+            <td><code class="small text-primary">${item.link || '#'}</code></td>
+            <td class="text-end">
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-outline-secondary" title="Move Up" ${isFirst ? 'disabled' : ''} onclick="moveTickerItem(${index}, -1)">
+                  <i class="bi bi-arrow-up"></i>
+                </button>
+                <button class="btn btn-outline-secondary" title="Move Down" ${isLast ? 'disabled' : ''} onclick="moveTickerItem(${index}, 1)">
+                  <i class="bi bi-arrow-down"></i>
+                </button>
+                <button class="btn btn-outline-primary" title="Edit" onclick="openEditTickerModal(${item.id})">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="btn btn-outline-danger" title="Delete" onclick="deleteTickerItem(${item.id})">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderPreviewTicker() {
+      const track = document.getElementById('previewTickerTrack');
+      const updates = (currentData.tickerUpdates || []).filter(item => item.active !== false);
+
+      if (updates.length === 0) {
+        track.innerHTML = '<span class="text-dark small">No active announcements to display</span>';
+        return;
+      }
+
+      const looped = updates.concat(updates);
+      track.innerHTML = looped.map(item => `
+        <span class="d-inline-flex align-items-center gap-1.5 fw-semibold text-dark small" style="cursor: pointer;">
+          ${item.isNew ? '<span class="new-badge">NEW</span>' : ''}
+          <span>${item.titleHi || item.titleEn}</span>
+          <i class="bi bi-chevron-right text-purple small"></i>
+        </span>
+      `).join('');
+    }
+
+    function openAddTickerModal() {
+      document.getElementById('tickerModalTitle').textContent = 'Add New Announcement';
+      document.getElementById('tickerEditId').value = '';
+      document.getElementById('tickerTitleHi').value = '';
+      document.getElementById('tickerTitleEn').value = '';
+      document.getElementById('tickerLink').value = '#';
+      document.getElementById('tickerIsNew').checked = true;
+      document.getElementById('tickerActive').checked = true;
+
+      const modal = new bootstrap.Modal(document.getElementById('tickerModal'));
+      modal.show();
+    }
+
+    function openEditTickerModal(id) {
+      const item = (currentData.tickerUpdates || []).find(x => x.id === id);
+      if (!item) return;
+
+      document.getElementById('tickerModalTitle').textContent = 'Edit Announcement';
+      document.getElementById('tickerEditId').value = item.id;
+      document.getElementById('tickerTitleHi').value = item.titleHi || '';
+      document.getElementById('tickerTitleEn').value = item.titleEn || '';
+      document.getElementById('tickerLink').value = item.link || '#';
+      document.getElementById('tickerIsNew').checked = !!item.isNew;
+      document.getElementById('tickerActive').checked = item.active !== false;
+
+      const modal = new bootstrap.Modal(document.getElementById('tickerModal'));
+      modal.show();
+    }
+
+    function handleSaveTicker(e) {
+      e.preventDefault();
+      const editId = document.getElementById('tickerEditId').value;
+      const titleHi = document.getElementById('tickerTitleHi').value.trim();
+      const titleEn = document.getElementById('tickerTitleEn').value.trim();
+      const link = document.getElementById('tickerLink').value.trim() || '#';
+      const isNew = document.getElementById('tickerIsNew').checked;
+      const active = document.getElementById('tickerActive').checked;
+
+      if (!currentData.tickerUpdates) currentData.tickerUpdates = [];
+
+      if (editId) {
+        const idx = currentData.tickerUpdates.findIndex(x => x.id === parseInt(editId));
+        if (idx !== -1) {
+          currentData.tickerUpdates[idx] = {
+            ...currentData.tickerUpdates[idx],
+            titleHi,
+            titleEn,
+            link,
+            isNew,
+            active
+          };
+        }
+      } else {
+        const newId = currentData.tickerUpdates.length > 0
+          ? Math.max(...currentData.tickerUpdates.map(x => x.id || 0)) + 1
+          : 1;
+        currentData.tickerUpdates.push({
+          id: newId,
+          titleHi,
+          titleEn: titleEn || titleHi,
+          link,
+          isNew,
+          active,
+          order: currentData.tickerUpdates.length + 1
+        });
+      }
+
+      saveDataAndRefresh('Announcement saved successfully!');
+      bootstrap.Modal.getInstance(document.getElementById('tickerModal')).hide();
+    }
+
+    function moveTickerItem(index, direction) {
+      const targetIndex = index + direction;
+      if (targetIndex < 0 || targetIndex >= currentData.tickerUpdates.length) return;
+
+      const temp = currentData.tickerUpdates[index];
+      currentData.tickerUpdates[index] = currentData.tickerUpdates[targetIndex];
+      currentData.tickerUpdates[targetIndex] = temp;
+
+      currentData.tickerUpdates.forEach((item, idx) => { item.order = idx + 1; });
+      saveDataAndRefresh('Order updated!');
+    }
+
+    function deleteTickerItem(id) {
+      if (!confirm('Are you sure you want to delete this announcement?')) return;
+      currentData.tickerUpdates = (currentData.tickerUpdates || []).filter(x => x.id !== id);
+      saveDataAndRefresh('Announcement removed.');
+    }
+
+    function renderFormsTable() {
+      const tbody = document.getElementById('formsTableBody');
+      const badge = document.getElementById('formsCountBadge');
+      const forms = currentData.quickForms || [];
+      badge.textContent = forms.length + ' Forms';
+
+      if (forms.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted py-4">No forms added yet. Click "Add New Download Form" above.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = forms.map((item, index) => {
+        const isFirst = index === 0;
+        const isLast = index === forms.length - 1;
+        return `
+          <tr>
+            <td class="fw-bold text-muted">${index + 1}</td>
+            <td>
+              <span class="badge ${item.active !== false ? 'bg-success' : 'bg-secondary'}">
+                ${item.active !== false ? 'Active' : 'Hidden'}
+              </span>
+            </td>
+            <td>
+              <div class="fw-bold text-dark">${item.titleEn}</div>
+              <div class="text-muted small">${item.titleHi || '-'}</div>
+            </td>
+            <td>
+              <span class="badge bg-purple-subtle text-purple border">${item.type || 'PDF'}</span>
+              <span class="small text-muted d-block mt-0.5">${item.size || '500 KB'}</span>
+            </td>
+            <td><code class="small text-primary">${item.fileUrl || '#'}</code></td>
+            <td class="text-end">
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-outline-secondary" title="Move Up" ${isFirst ? 'disabled' : ''} onclick="moveFormItem(${index}, -1)">
+                  <i class="bi bi-arrow-up"></i>
+                </button>
+                <button class="btn btn-outline-secondary" title="Move Down" ${isLast ? 'disabled' : ''} onclick="moveFormItem(${index}, 1)">
+                  <i class="bi bi-arrow-down"></i>
+                </button>
+                <button class="btn btn-outline-primary" title="Edit" onclick="openEditFormModal(${item.id})">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="btn btn-outline-danger" title="Delete" onclick="deleteFormItem(${item.id})">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderPreviewForms() {
+      const container = document.getElementById('previewFormsList');
+      const forms = (currentData.quickForms || []).filter(item => item.active !== false);
+
+      if (forms.length === 0) {
+        container.innerHTML = '<div class="text-center text-muted small py-3">No active forms configured.</div>';
+        return;
+      }
+
+      container.innerHTML = forms.map(item => `
+        <div class="preview-form-item">
+          <div class="d-flex align-items-start gap-2">
+            <i class="bi bi-file-earmark-check-fill text-purple mt-0.5 fs-6"></i>
+            <div>
+              <div class="fw-bold text-dark" style="font-size: 13px; line-height: 1.3;">${item.titleEn}</div>
+              <span class="text-muted" style="font-size: 11px;">${item.type || 'PDF'} • ${item.size || '500 KB'}</span>
+            </div>
+          </div>
+          <i class="bi bi-download text-muted"></i>
+        </div>
+      `).join('');
+
+      const kg = currentData.kulgeet;
+      if (kg) {
+        document.getElementById('previewKulgeetTitle').textContent = kg.titleEn || 'University Kulgeet';
+        document.getElementById('previewKulgeetDesc').textContent = kg.descEn || 'Download the official KTUJM anthem & lyrics';
+      }
+    }
+
+    function openAddFormModal() {
+      document.getElementById('formModalTitle').textContent = 'Add Downloadable Form';
+      document.getElementById('formEditId').value = '';
+      document.getElementById('formTitleEn').value = '';
+      document.getElementById('formTitleHi').value = '';
+      document.getElementById('formType').value = 'PDF';
+      document.getElementById('formSize').value = '650 KB';
+      document.getElementById('formFileUrl').value = '#';
+      document.getElementById('formActive').checked = true;
+
+      const modal = new bootstrap.Modal(document.getElementById('formModal'));
+      modal.show();
+    }
+
+    function openEditFormModal(id) {
+      const item = (currentData.quickForms || []).find(x => x.id === id);
+      if (!item) return;
+
+      document.getElementById('formModalTitle').textContent = 'Edit Downloadable Form';
+      document.getElementById('formEditId').value = item.id;
+      document.getElementById('formTitleEn').value = item.titleEn || '';
+      document.getElementById('formTitleHi').value = item.titleHi || '';
+      document.getElementById('formType').value = item.type || 'PDF';
+      document.getElementById('formSize').value = item.size || '500 KB';
+      document.getElementById('formFileUrl').value = item.fileUrl || '#';
+      document.getElementById('formActive').checked = item.active !== false;
+
+      const modal = new bootstrap.Modal(document.getElementById('formModal'));
+      modal.show();
+    }
+
+    function handleSaveFormItem(e) {
+      e.preventDefault();
+      const editId = document.getElementById('formEditId').value;
+      const titleEn = document.getElementById('formTitleEn').value.trim();
+      const titleHi = document.getElementById('formTitleHi').value.trim();
+      const type = document.getElementById('formType').value;
+      const size = document.getElementById('formSize').value.trim();
+      const fileUrl = document.getElementById('formFileUrl').value.trim() || '#';
+      const active = document.getElementById('formActive').checked;
+
+      if (!currentData.quickForms) currentData.quickForms = [];
+
+      if (editId) {
+        const idx = currentData.quickForms.findIndex(x => x.id === parseInt(editId));
+        if (idx !== -1) {
+          currentData.quickForms[idx] = {
+            ...currentData.quickForms[idx],
+            titleEn,
+            titleHi,
+            type,
+            size,
+            fileUrl,
+            active
+          };
+        }
+      } else {
+        const newId = currentData.quickForms.length > 0
+          ? Math.max(...currentData.quickForms.map(x => x.id || 0)) + 1
+          : 1;
+        currentData.quickForms.push({
+          id: newId,
+          titleEn,
+          titleHi,
+          type,
+          size,
+          fileUrl,
+          active,
+          order: currentData.quickForms.length + 1
+        });
+      }
+
+      saveDataAndRefresh('Downloadable Form saved successfully!');
+      bootstrap.Modal.getInstance(document.getElementById('formModal')).hide();
+    }
+
+    function moveFormItem(index, direction) {
+      const targetIndex = index + direction;
+      if (targetIndex < 0 || targetIndex >= currentData.quickForms.length) return;
+
+      const temp = currentData.quickForms[index];
+      currentData.quickForms[index] = currentData.quickForms[targetIndex];
+      currentData.quickForms[targetIndex] = temp;
+
+      currentData.quickForms.forEach((item, idx) => { item.order = idx + 1; });
+      saveDataAndRefresh('Form order updated!');
+    }
+
+    function deleteFormItem(id) {
+      if (!confirm('Are you sure you want to delete this form?')) return;
+      currentData.quickForms = (currentData.quickForms || []).filter(x => x.id !== id);
+      saveDataAndRefresh('Form removed.');
+    }
+
+    function populateKulgeetSettings() {
+      const kg = currentData.kulgeet || {};
+      document.getElementById('kgTitleEn').value = kg.titleEn || 'University Kulgeet';
+      document.getElementById('kgTitleHi').value = kg.titleHi || 'विश्वविद्यालय कुलगीत';
+      document.getElementById('kgDescEn').value = kg.descEn || 'Download the official KTUJM anthem & lyrics';
+      document.getElementById('kgDescHi').value = kg.descHi || 'विश्वविद्यालय का आधिकारिक कुलगीत (PDF/Audio)';
+      document.getElementById('kgFileUrl').value = kg.fileUrl || 'assets/docs/kulgeet.pdf';
+
+      document.getElementById('previewKgCardTitle').textContent = kg.titleEn || 'University Kulgeet';
+      document.getElementById('previewKgCardDesc').textContent = kg.descEn || 'Download the official KTUJM anthem & lyrics';
+    }
+
+    function handleSaveKulgeet(e) {
+      e.preventDefault();
+      currentData.kulgeet = {
+        titleEn: document.getElementById('kgTitleEn').value.trim(),
+        titleHi: document.getElementById('kgTitleHi').value.trim(),
+        descEn: document.getElementById('kgDescEn').value.trim(),
+        descHi: document.getElementById('kgDescHi').value.trim(),
+        fileUrl: document.getElementById('kgFileUrl').value.trim()
+      };
+      saveDataAndRefresh('Kulgeet settings saved successfully!');
+    }
+
+    function populateCredentialsSettings() {
+      const creds = getStoredCredentials();
+      document.getElementById('settingAdminId').value = creds.adminId;
+      document.getElementById('settingNewPassword').value = '';
+      document.getElementById('settingConfirmPassword').value = '';
+    }
+
+    function handleChangeCredentials(e) {
+      e.preventDefault();
+      const newId = document.getElementById('settingAdminId').value.trim();
+      const newPass = document.getElementById('settingNewPassword').value;
+      const confirmPass = document.getElementById('settingConfirmPassword').value;
+
+      if (!newId) {
+        showToast('Admin ID cannot be empty.', 'danger');
+        return;
+      }
+
+      const creds = getStoredCredentials();
+      creds.adminId = newId;
+
+      if (newPass) {
+        if (newPass !== confirmPass) {
+          showToast('Passwords do not match.', 'danger');
+          return;
+        }
+        creds.password = newPass;
+      }
+
+      localStorage.setItem(CREDENTIALS_KEY, JSON.stringify(creds));
+      showToast('Credentials updated successfully!', 'success');
+      populateCredentialsSettings();
+    }
+
+    function exportDataJson() {
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(currentData, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute('href', dataStr);
+      downloadAnchor.setAttribute('download', 'ktujm-data.json');
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast('Configuration exported as ktujm-data.json', 'info');
+    }
+
+    function handleImportJsonFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const imported = JSON.parse(evt.target.result);
+          if (imported && (imported.tickerUpdates || imported.quickForms)) {
+            currentData = imported;
+            saveDataAndRefresh('Configuration imported successfully!');
+          } else {
+            showToast('Invalid JSON structure: missing tickerUpdates or quickForms.', 'danger');
+          }
+        } catch (err) {
+          showToast('Failed to parse JSON file.', 'danger');
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    }
+
+    function confirmResetDefaults() {
+      if (!confirm('Are you sure you want to reset all portal data to original defaults?')) return;
+      window.ktujmResetData();
+      loadAllData();
+      showToast('All announcements and forms restored to factory defaults.', 'success');
+    }
+
+    function syncAllToPublicSite() {
+      window.ktujmSaveData(currentData);
+      showToast('Portal content synchronized across all pages!', 'success');
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      const toastEl = document.createElement('div');
+      toastEl.className = `toast align-items-center text-white bg-${type === 'danger' ? 'danger' : (type === 'success' ? 'success' : 'dark')} border-0 show shadow-lg mb-2`;
+      toastEl.setAttribute('role', 'alert');
+      toastEl.innerHTML = `
+        <div class="d-flex">
+          <div class="toast-body d-flex align-items-center gap-2">
+            <i class="bi ${type === 'success' ? 'bi-check-circle-fill' : (type === 'danger' ? 'bi-exclamation-triangle-fill' : 'bi-info-circle-fill')}"></i>
+            ${message}
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+      `;
+      container.appendChild(toastEl);
+      setTimeout(() => {
+        toastEl.classList.remove('show');
+        setTimeout(() => toastEl.remove(), 400);
+      }, 3500);
+    }
+
+    document.addEventListener('DOMContentLoaded', checkAuthSession);
+  </script>
+</body>
+</html>

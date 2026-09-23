@@ -4,6 +4,6 @@
   "private": true,
   "description": "KTUJM University Web Portal",
   "scripts": {
-    "build": "node -e \"const fs=require('fs'); if(!fs.existsSync('dist')) fs.cpSync('wwwroot', 'dist', {recursive:true}); console.log('Static build ready for Vercel deployment');\""
+    "build": "node -e \"const fs=require('fs'); fs.rmSync('dist', {recursive:true, force:true}); fs.cpSync('wwwroot', 'dist', {recursive:true}); console.log('Static build ready for Vercel deployment');\""
   }
 }
