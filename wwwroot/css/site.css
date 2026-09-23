@@ -406,6 +406,22 @@ html[lang="hi"] #site-navbar .nav-link,
   color: #ffffff;
 }
 
+.pool-area h1,
+.pool-area h2,
+.pool-area h3,
+.pool-area h4,
+.pool-area h5,
+.pool-area h6,
+.pool-area .section-heading h2,
+.section-heading.text-white h1,
+.section-heading.text-white h2,
+.section-heading.text-white h3,
+.section-heading.text-white h4,
+.section-heading.text-white h5,
+.section-heading.text-white h6 {
+  color: #ffffff !important;
+}
+
 .pool-area::before {
   content: '';
   position: absolute;
